@@ -42,8 +42,10 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable("history") {
+                            val ttsViewModel: TTSViewModel = koinViewModel()
                             HistoryPage(
-                                onNavigateBack = { navController.popBackStack() }
+                                onNavigateBack = { navController.popBackStack() },
+                                viewModel = ttsViewModel
                             )
                         }
                         composable("settings") {

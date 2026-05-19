@@ -12,7 +12,8 @@ data class TTSSettings(
     val selectedVoice: String = "冰糖",
     val voiceDescription: String = "",
     val audioFormat: AudioFormat = AudioFormat.WAV,
-    val styleInstruction: String = ""
+    val styleInstruction: String = "",
+    val historyItems: List<TTSHistoryItem> = emptyList()
 )
 
 @Serializable

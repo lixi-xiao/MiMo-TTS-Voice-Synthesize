@@ -11,6 +11,7 @@ import com.mimotts.android.data.api.MiMoApiService
 import com.mimotts.android.data.datastore.SettingsDataStore
 import com.mimotts.android.data.model.AudioFormat
 import com.mimotts.android.data.model.TTSModel
+import com.mimotts.android.data.model.TTSHistoryItem
 import com.mimotts.android.data.model.TTSSettings
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -53,6 +54,9 @@ class TTSViewModel(
     private val _voiceCloneUri = MutableStateFlow<Uri?>(null)
     val voiceCloneUri: StateFlow<Uri?> = _voiceCloneUri.asStateFlow()
 
+    private val _historyItems = MutableStateFlow<List<TTSHistoryItem>>(emptyList())
+    val historyItems: StateFlow<List<TTSHistoryItem>> = _historyItems.asStateFlow()
+
     init {
         viewModelScope.launch {
             settingsDataStore.settingsFlow.collect { settings ->
@@ -69,6 +73,7 @@ class TTSViewModel(
                 }
                 _settings.value = finalSettings
                 _activeApiConfig.value = finalSettings.apiConfigs.find { it.id == finalSettings.activeApiId }
+                _historyItems.value = finalSettings.historyItems
             }
         }
     }
@@ -253,6 +258,22 @@ class TTSViewModel(
                     val file = File(context.cacheDir, filename)
                     file.writeBytes(audioData)
                     _audioUri.value = Uri.fromFile(file)
+
+                    // 添加到历史记录
+                    val historyItem = TTSHistoryItem(
+                        id = UUID.randomUUID().toString(),
+                        text = text,
+                        model = currentSettings.selectedModel,
+                        voice = when (currentSettings.selectedModel) {
+                            TTSModel.PRESET -> currentSettings.selectedVoice
+                            TTSModel.VOICE_DESIGN -> currentSettings.voiceDescription
+                            TTSModel.VOICE_CLONE -> "音色克隆"
+                        },
+                        audioUrl = file.absolutePath,
+                        createdAt = System.currentTimeMillis()
+                    )
+                    settingsDataStore.addHistoryItem(historyItem)
+                    _historyItems.value = listOf(historyItem) + _historyItems.value
                 }.onFailure { e ->
                     _error.value = "合成失败: ${e.message}"
                 }
@@ -266,6 +287,20 @@ class TTSViewModel(
 
     fun dismissError() {
         _error.value = null
+    }
+
+    fun clearHistory() {
+        viewModelScope.launch {
+            settingsDataStore.clearHistory()
+            _historyItems.value = emptyList()
+        }
+    }
+
+    fun removeHistoryItem(id: String) {
+        viewModelScope.launch {
+            settingsDataStore.removeHistoryItem(id)
+            _historyItems.value = _historyItems.value.filter { it.id != id }
+        }
     }
 
     fun downloadAudio(context: Context, uri: Uri) {

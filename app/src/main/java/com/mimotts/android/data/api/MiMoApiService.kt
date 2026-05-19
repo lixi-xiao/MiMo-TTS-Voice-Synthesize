@@ -64,6 +64,7 @@ class MiMoApiService {
 
             val response: ChatCompletionResponse = client.post("$baseUrl/chat/completions") {
                 contentType(ContentType.Application.Json)
+                header("api-key", token)
                 header("Authorization", "Bearer $token")
                 timeout {
                     requestTimeoutMillis = 120000 // 增加到120秒，音色克隆可能需要更长时间
@@ -80,9 +81,14 @@ class MiMoApiService {
             if (audioData != null) {
                 Result.success(Base64.decode(audioData, Base64.DEFAULT))
             } else {
-                // 检查是否有错误信息
-                val errorMsg = response.choices?.firstOrNull()?.message?.content
-                    ?: "API 未返回音频数据"
+                val contentMsg = response.choices?.firstOrNull()?.message?.content
+                val errorMsg = if (!contentMsg.isNullOrBlank()) {
+                    "API 未返回音频数据: $contentMsg"
+                } else if (response.choices.isNullOrEmpty()) {
+                    "API 返回空结果，请检查 API Key 是否有效"
+                } else {
+                    "API 未返回音频数据，请检查音频样本格式（仅支持 mp3 和 wav）"
+                }
                 Result.failure(Exception(errorMsg))
             }
         } catch (e: Exception) {
@@ -110,8 +116,16 @@ class MiMoApiService {
                     Message(role = "assistant", content = text)
                 )
             }
+            model.contains("voiceclone") -> {
+                // 音色克隆：assistant 消息提供合成文本，user 消息提供可选的风格指令
+                val userContent = styleInstruction.takeIf { it.isNotBlank() } ?: "请用提供的音色朗读以下文本"
+                listOf(
+                    Message(role = "user", content = userContent),
+                    Message(role = "assistant", content = text)
+                )
+            }
             else -> {
-                // 预设音色和音色克隆：user 消息可包含风格指令
+                // 预设音色：user 消息可包含风格指令
                 listOf(
                     Message(
                         role = "user",

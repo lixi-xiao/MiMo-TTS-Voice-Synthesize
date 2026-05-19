@@ -10,6 +10,7 @@ import com.mimotts.android.data.model.ApiConfig
 import com.mimotts.android.data.model.AudioFormat
 import com.mimotts.android.data.model.TTSModel
 import com.mimotts.android.data.model.TTSSettings
+import com.mimotts.android.data.model.TTSHistoryItem
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.serialization.encodeToString
@@ -164,6 +165,39 @@ class SettingsDataStore(private val context: Context) {
             } ?: TTSSettings()
             preferences[TTS_SETTINGS_KEY] = Json.encodeToString(
                 current.copy(styleInstruction = instruction)
+            )
+        }
+    }
+
+    suspend fun addHistoryItem(item: TTSHistoryItem) {
+        context.dataStore.edit { preferences ->
+            val current = preferences[TTS_SETTINGS_KEY]?.let {
+                Json.decodeFromString<TTSSettings>(it)
+            } ?: TTSSettings()
+            preferences[TTS_SETTINGS_KEY] = Json.encodeToString(
+                current.copy(historyItems = listOf(item) + current.historyItems.take(99)) // 最多保存100条
+            )
+        }
+    }
+
+    suspend fun clearHistory() {
+        context.dataStore.edit { preferences ->
+            val current = preferences[TTS_SETTINGS_KEY]?.let {
+                Json.decodeFromString<TTSSettings>(it)
+            } ?: TTSSettings()
+            preferences[TTS_SETTINGS_KEY] = Json.encodeToString(
+                current.copy(historyItems = emptyList())
+            )
+        }
+    }
+
+    suspend fun removeHistoryItem(id: String) {
+        context.dataStore.edit { preferences ->
+            val current = preferences[TTS_SETTINGS_KEY]?.let {
+                Json.decodeFromString<TTSSettings>(it)
+            } ?: TTSSettings()
+            preferences[TTS_SETTINGS_KEY] = Json.encodeToString(
+                current.copy(historyItems = current.historyItems.filter { it.id != id })
             )
         }
     }
