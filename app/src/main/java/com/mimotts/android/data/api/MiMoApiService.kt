@@ -65,6 +65,7 @@ class MiMoApiService {
 
             val response: HttpResponse = client.post("$baseUrl/chat/completions") {
                 contentType(ContentType.Application.Json)
+                header("Authorization", "Bearer $token")
                 header("api-key", token)
                 timeout {
                     requestTimeoutMillis = 120000 // 增加到120秒，音色克隆可能需要更长时间
@@ -152,10 +153,13 @@ class MiMoApiService {
     ): AudioPayload {
         return when {
             model.contains("voiceclone") -> {
-                // 音色克隆：必须提供音频样本的 base64
+                // 音色克隆：voice 必须使用 Data URI 格式
+                val dataUri = if (voiceCloneBase64 != null) {
+                    "data:audio/wav;base64,$voiceCloneBase64"
+                } else null
                 AudioPayload(
                     format = format,
-                    voice = voiceCloneBase64
+                    voice = dataUri
                 )
             }
             model.contains("voicedesign") -> {

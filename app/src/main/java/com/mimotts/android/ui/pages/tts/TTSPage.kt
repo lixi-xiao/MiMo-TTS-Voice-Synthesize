@@ -58,6 +58,9 @@ fun TTSPage(
     // 独立维护文本状态，避免每次 recompose 都触发 viewModel.textState.edit
     var text by remember { mutableStateOf("") }
 
+    // 音色描述本地状态，避免每次输入都触发 DataStore 更新导致焦点丢失
+    var voiceDescription by remember { mutableStateOf(settings.voiceDescription) }
+
     // 双向同步：viewModel.textState 变化时同步到本地 text
     LaunchedEffect(viewModel.textState.text.toString()) {
         val viewModelText = viewModel.textState.text.toString()
@@ -71,6 +74,13 @@ fun TTSPage(
         val viewModelText = viewModel.textState.text.toString()
         if (viewModelText != text) {
             viewModel.textState.edit { replace(0, length, text) }
+        }
+    }
+
+    // 双向同步：DataStore 中的 voiceDescription 变化时同步到本地状态
+    LaunchedEffect(settings.voiceDescription) {
+        if (settings.voiceDescription != voiceDescription) {
+            voiceDescription = settings.voiceDescription
         }
     }
 
@@ -170,8 +180,11 @@ fun TTSPage(
                     onVoiceChange = { viewModel.updateSelectedVoice(it) }
                 )
                 TTSModel.VOICE_DESIGN -> VoiceDesignSection(
-                    description = settings.voiceDescription,
-                    onDescriptionChange = { viewModel.updateVoiceDescription(it) }
+                    description = voiceDescription,
+                    onDescriptionChange = {
+                        voiceDescription = it
+                        viewModel.updateVoiceDescription(it)
+                    }
                 )
                 TTSModel.VOICE_CLONE -> VoiceCloneSection(
                     cloneUri = voiceCloneUri,
