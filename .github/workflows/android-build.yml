@@ -36,69 +36,46 @@ jobs:
     
     - name: Setup Gradle Wrapper
       run: |
-        echo "=== Setting up Gradle Wrapper ==="
+        echo "Setting up Gradle Wrapper"
         mkdir -p gradle/wrapper
-        
-        # Download gradle wrapper jar
-        curl -L -o gradle/wrapper/gradle-wrapper.jar \
-          https://raw.githubusercontent.com/gradle/gradle/v8.9.0/gradle/wrapper/gradle-wrapper.jar || \
-          echo "Failed to download wrapper jar"
-        
-        # Create gradle-wrapper.properties
-        cat > gradle/wrapper/gradle-wrapper.properties << 'PROPS'
-distributionBase=GRADLE_USER_HOME
-distributionPath=wrapper/dists
-distributionUrl=https\://services.gradle.org/distributions/gradle-8.9-bin.zip
-networkTimeout=10000
-validateDistributionUrl=true
-zipStoreBase=GRADLE_USER_HOME
-zipStorePath=wrapper/dists
-PROPS
-        
-        # Create gradlew script
-        cat > gradlew << 'SCRIPT'
-#!/bin/sh
-APP_HOME=$(cd "$(dirname "$0")" && pwd)
-CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
-exec java -classpath "$CLASSPATH" org.gradle.wrapper.GradleWrapperMain "$@"
-SCRIPT
-        
+        curl -L -o gradle/wrapper/gradle-wrapper.jar https://raw.githubusercontent.com/gradle/gradle/v8.9.0/gradle/wrapper/gradle-wrapper.jar
+        echo "distributionBase=GRADLE_USER_HOME" > gradle/wrapper/gradle-wrapper.properties
+        echo "distributionPath=wrapper/dists" >> gradle/wrapper/gradle-wrapper.properties
+        echo "distributionUrl=https\://services.gradle.org/distributions/gradle-8.9-bin.zip" >> gradle/wrapper/gradle-wrapper.properties
+        echo "networkTimeout=10000" >> gradle/wrapper/gradle-wrapper.properties
+        echo "validateDistributionUrl=true" >> gradle/wrapper/gradle-wrapper.properties
+        echo "zipStoreBase=GRADLE_USER_HOME" >> gradle/wrapper/gradle-wrapper.properties
+        echo "zipStorePath=wrapper/dists" >> gradle/wrapper/gradle-wrapper.properties
+        echo '#!/bin/sh' > gradlew
+        echo 'APP_HOME=$(cd "$(dirname "$0")" && pwd)' >> gradlew
+        echo 'CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar' >> gradlew
+        echo 'exec java -classpath "$CLASSPATH" org.gradle.wrapper.GradleWrapperMain "$@"' >> gradlew
         chmod +x gradlew
-        echo "Gradle Wrapper setup complete"
-        ls -la gradlew
-        ls -la gradle/wrapper/
         
     - name: Check project structure
       run: |
-        echo "=== Project Structure ==="
+        echo "Project Structure"
         ls -la
         echo ""
-        echo "=== App Directory ==="
+        echo "App Directory"
         ls -la app/ 2>/dev/null || echo "No app directory"
         echo ""
-        echo "=== Build Files ==="
+        echo "Build Files"
         find . -name "*.gradle*" -type f 2>/dev/null
         
     - name: Build Debug APK
       run: |
-        echo "=== Starting Gradle Build ==="
-        ./gradlew assembleDebug --stacktrace --info 2>&1 | tee build.log || echo "Build command finished"
-        echo ""
-        echo "=== Build Log End ==="
+        echo "Starting Gradle Build"
+        ./gradlew assembleDebug --stacktrace 2>&1 | tee build.log || echo "Build finished"
       continue-on-error: true
       
     - name: Find and verify APK
       run: |
-        echo "=== Searching for APK files ==="
+        echo "Searching for APK files"
         find . -name "*.apk" -type f 2>/dev/null
-        
         echo ""
-        echo "=== Build outputs directory ==="
+        echo "Build outputs directory"
         ls -laR app/build/outputs/ 2>/dev/null || echo "No outputs directory"
-        
-        echo ""
-        echo "=== APK files details ==="
-        find . -name "*.apk" -type f -exec ls -lh {} \; 2>/dev/null || echo "No APK files found"
         
     - name: Upload APK Artifact
       uses: actions/upload-artifact@v4
@@ -118,5 +95,4 @@ SCRIPT
         path: |
           build.log
           app/build/reports/
-          **/*.log
         if-no-files-found: ignore
