@@ -161,13 +161,10 @@ class MiMoApiService {
     ): AudioPayload {
         return when {
             model.contains("voiceclone") -> {
-                // 音色克隆：voice 必须使用 Data URI 格式
-                val dataUri = if (voiceCloneBase64 != null) {
-                    "data:audio/wav;base64,$voiceCloneBase64"
-                } else null
+                // 音色克隆：voice 使用 Data URI 格式（由ViewModel根据文件MIME类型构建）
                 AudioPayload(
                     format = format,
-                    voice = dataUri
+                    voice = voiceCloneBase64
                 )
             }
             model.contains("voicedesign") -> {

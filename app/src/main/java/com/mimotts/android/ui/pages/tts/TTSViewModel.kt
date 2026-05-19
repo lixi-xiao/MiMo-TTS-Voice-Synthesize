@@ -219,7 +219,10 @@ class TTSViewModel(
                         try {
                             context.contentResolver.openInputStream(uri)?.use { inputStream ->
                                 val bytes = inputStream.readBytes()
-                                android.util.Base64.encodeToString(bytes, android.util.Base64.DEFAULT)
+                                val base64 = android.util.Base64.encodeToString(bytes, android.util.Base64.DEFAULT)
+                                // 根据实际文件MIME类型构建Data URI
+                                val mimeType = context.contentResolver.getType(uri) ?: "audio/wav"
+                                "data:$mimeType;base64,$base64"
                             }
                         } catch (e: Exception) {
                             _error.value = "读取音频文件失败: ${e.message}"
