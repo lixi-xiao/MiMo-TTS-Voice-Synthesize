@@ -4,11 +4,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class TTSSettings(
-    val apiMode: ApiMode = ApiMode.PLAN,
-    val planToken: String = "",
     val apiKey: String = "",
-    val planEndpoint: String = "https://token-plan-cn.xiaomimimo.com/v1",
     val apiEndpoint: String = "https://api.xiaomimimo.com/v1",
+    val activeApiId: String = "",
+    val apiConfigs: List<ApiConfig> = emptyList(),
     val selectedModel: TTSModel = TTSModel.PRESET,
     val selectedVoice: String = "冰糖",
     val voiceDescription: String = "",
@@ -17,10 +16,19 @@ data class TTSSettings(
 )
 
 @Serializable
-enum class ApiMode {
-    PLAN,      // MiMo Plan Token
-    API_KEY    // API Key
-}
+data class ApiConfig(
+    val id: String = "",  // UUID格式
+    val name: String = "",  // 用户自定义名称
+    val apiKey: String = "",
+    val apiEndpoint: String = "https://api.xiaomimimo.com/v1"
+)
+
+val DEFAULT_API_CONFIG = ApiConfig(
+    id = "default",
+    name = "按量付费 (默认)",
+    apiKey = "",
+    apiEndpoint = "https://api.xiaomimimo.com/v1"
+)
 
 @Serializable
 enum class TTSModel {
@@ -36,7 +44,7 @@ enum class AudioFormat {
 }
 
 val PRESET_VOICES = listOf(
-    "冰糖", "茉莉", "苏打", "白桦", 
+    "冰糖", "茉莉", "苏打", "白桦",
     "Mia", "Chloe", "Milo", "Dean"
 )
 

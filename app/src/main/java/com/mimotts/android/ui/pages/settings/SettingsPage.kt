@@ -1,20 +1,41 @@
 package com.mimotts.android.ui.pages.settings
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.mimotts.android.data.model.ApiConfig
+import com.mimotts.android.ui.pages.tts.TTSViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SettingsPage(
-    onNavigateBack: () -> Unit
+    onNavigateBack: () -> Unit,
+    viewModel: TTSViewModel
 ) {
+    val settings by viewModel.settings.collectAsStateWithLifecycle()
+    val apiConfigs = settings.apiConfigs
+    val activeApiId = settings.activeApiId
+
+    var showAddDialog by remember { mutableStateOf(false) }
+    var editingConfig by remember { mutableStateOf<ApiConfig?>(null) }
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -35,38 +56,107 @@ fun SettingsPage(
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            Card {
+            // API 配置管理区域
+            Card(
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Column(
+                    modifier = Modifier.padding(16.dp),
+                    verticalArrangement = Arrangement.spacedBy(12.dp)
+                ) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(
+                            "API 配置",
+                            style = MaterialTheme.typography.titleMedium,
+                            fontWeight = FontWeight.Bold
+                        )
+                        IconButton(onClick = { showAddDialog = true }) {
+                            Icon(
+                                Icons.Default.Add,
+                                contentDescription = "添加新配置"
+                            )
+                        }
+                    }
+
+                    if (apiConfigs.isEmpty()) {
+                        Text(
+                            "暂无 API 配置，请点击右上角添加",
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    } else {
+                        apiConfigs.forEach { config ->
+                            val isActive = config.id == activeApiId
+                            ApiConfigItem(
+                                config = config,
+                                isActive = isActive,
+                                canDelete = apiConfigs.size > 1,
+                                onSelect = { viewModel.setActiveApiId(config.id) },
+                                onEdit = { editingConfig = config },
+                                onDelete = { viewModel.removeApiConfig(config.id) }
+                            )
+                        }
+                    }
+                }
+            }
+
+            // 免责声明区域
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.3f)
+                )
+            ) {
                 Column(
                     modifier = Modifier.padding(16.dp),
                     verticalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     Text(
-                        "API 配置",
-                        style = MaterialTheme.typography.titleMedium
+                        "免责声明",
+                        style = MaterialTheme.typography.titleSmall,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.error
                     )
                     Text(
-                        "请在主页面配置您的 MiMo Plan Token 或 API Key",
-                        style = MaterialTheme.typography.bodyMedium,
+                        "本应用为非官方第三方应用，与小米公司无任何关联。使用本应用所产生的任何后果由用户自行承担。",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    Text(
+                        "Token Plan 功能当前不可用，请使用 API Key 模式。",
+                        style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
             }
-            
-            Card {
+
+            // 关于区域
+            Card(
+                modifier = Modifier.fillMaxWidth()
+            ) {
                 Column(
                     modifier = Modifier.padding(16.dp),
                     verticalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     Text(
-                        "关于 MiMo TTS",
-                        style = MaterialTheme.typography.titleMedium
+                        "关于",
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.Bold
                     )
                     Text(
-                        "版本: 1.0.0",
+                        "MiMo TTS Voice Synthesize",
                         style = MaterialTheme.typography.bodyMedium
                     )
                     Text(
-                        "基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用",
+                        "版本: 0.1.4",
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+                    Text(
+                        "基于小米 MiMo-V2.5-TTS",
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -74,4 +164,196 @@ fun SettingsPage(
             }
         }
     }
+
+    // 添加新配置对话框
+    if (showAddDialog) {
+        ApiConfigDialog(
+            initialName = "",
+            initialEndpoint = "https://api.xiaomimimo.com/v1",
+            initialApiKey = "",
+            onDismiss = { showAddDialog = false },
+            onSave = { name, endpoint, apiKey ->
+                viewModel.addApiConfig(name, apiKey, endpoint)
+                showAddDialog = false
+            }
+        )
+    }
+
+    // 编辑配置对话框
+    editingConfig?.let { config ->
+        ApiConfigDialog(
+            initialName = config.name,
+            initialEndpoint = config.apiEndpoint,
+            initialApiKey = config.apiKey,
+            onDismiss = { editingConfig = null },
+            onSave = { name, endpoint, apiKey ->
+                viewModel.updateApiConfigName(config.id, name)
+                // 更新 endpoint 和 apiKey 需要通过 updateApiConfig
+                viewModel.addApiConfig(name, apiKey, endpoint)
+                // 删除旧的
+                viewModel.removeApiConfig(config.id)
+                editingConfig = null
+            }
+        )
+    }
+}
+
+@Composable
+private fun ApiConfigItem(
+    config: ApiConfig,
+    isActive: Boolean,
+    canDelete: Boolean,
+    onSelect: () -> Unit,
+    onEdit: () -> Unit,
+    onDelete: () -> Unit
+) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onSelect),
+        colors = CardDefaults.cardColors(
+            containerColor = if (isActive) {
+                MaterialTheme.colorScheme.primaryContainer
+            } else {
+                MaterialTheme.colorScheme.surface
+            }
+        ),
+        border = if (isActive) {
+            CardDefaults.outlinedCardBorder()
+        } else {
+            null
+        }
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(12.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Row(
+                modifier = Modifier.weight(1f),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                if (isActive) {
+                    Icon(
+                        Icons.Default.Check,
+                        contentDescription = "当前激活",
+                        tint = MaterialTheme.colorScheme.primary
+                    )
+                }
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(
+                        text = config.name,
+                        style = MaterialTheme.typography.bodyLarge,
+                        fontWeight = if (isActive) FontWeight.Bold else FontWeight.Normal
+                    )
+                    Text(
+                        text = config.apiEndpoint,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        maxLines = 1
+                    )
+                }
+            }
+            Row {
+                IconButton(onClick = onEdit) {
+                    Icon(
+                        Icons.AutoMirrored.Filled.ArrowBack,
+                        contentDescription = "编辑",
+                        modifier = Modifier.size(18.dp)
+                    )
+                }
+                if (canDelete) {
+                    IconButton(onClick = onDelete) {
+                        Icon(
+                            Icons.Default.Delete,
+                            contentDescription = "删除",
+                            tint = MaterialTheme.colorScheme.error
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun ApiConfigDialog(
+    initialName: String,
+    initialEndpoint: String,
+    initialApiKey: String,
+    onDismiss: () -> Unit,
+    onSave: (name: String, endpoint: String, apiKey: String) -> Unit
+) {
+    var name by remember { mutableStateOf(initialName) }
+    var endpoint by remember { mutableStateOf(initialEndpoint) }
+    var apiKey by remember { mutableStateOf(initialApiKey) }
+    var showApiKey by remember { mutableStateOf(false) }
+
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text("API 配置") },
+        text = {
+            Column(
+                verticalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                OutlinedTextField(
+                    value = name,
+                    onValueChange = { name = it },
+                    label = { Text("配置名称") },
+                    placeholder = { Text("例如：我的 API") },
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth()
+                )
+                OutlinedTextField(
+                    value = endpoint,
+                    onValueChange = { endpoint = it },
+                    label = { Text("API Endpoint") },
+                    placeholder = { Text("https://api.xiaomimimo.com/v1") },
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth()
+                )
+                OutlinedTextField(
+                    value = apiKey,
+                    onValueChange = { apiKey = it },
+                    label = { Text("API Key") },
+                    placeholder = { Text("sk-...") },
+                    singleLine = true,
+                    visualTransformation = if (showApiKey) {
+                        VisualTransformation.None
+                    } else {
+                        PasswordVisualTransformation()
+                    },
+                    trailingIcon = {
+                        IconButton(onClick = { showApiKey = !showApiKey }) {
+                            Icon(
+                                if (showApiKey) Icons.Default.VisibilityOff else Icons.Default.Visibility,
+                                contentDescription = if (showApiKey) "隐藏密码" else "显示密码"
+                            )
+                        }
+                    },
+                    modifier = Modifier.fillMaxWidth()
+                )
+            }
+        },
+        confirmButton = {
+            TextButton(
+                onClick = {
+                    if (name.isNotBlank()) {
+                        onSave(name, endpoint, apiKey)
+                    }
+                },
+                enabled = name.isNotBlank()
+            ) {
+                Text("保存")
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) {
+                Text("取消")
+            }
+        }
+    )
 }

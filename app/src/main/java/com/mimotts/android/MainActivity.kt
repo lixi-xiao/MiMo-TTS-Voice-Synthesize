@@ -14,13 +14,15 @@ import androidx.navigation.compose.rememberNavController
 import com.mimotts.android.ui.pages.history.HistoryPage
 import com.mimotts.android.ui.pages.settings.SettingsPage
 import com.mimotts.android.ui.pages.tts.TTSPage
+import com.mimotts.android.ui.pages.tts.TTSViewModel
 import com.mimotts.android.ui.theme.MiMoTTSTheme
+import org.koin.compose.viewmodel.koinViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
-        
+
         setContent {
             MiMoTTSTheme {
                 Surface(
@@ -28,7 +30,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     val navController = rememberNavController()
-                    
+
                     NavHost(
                         navController = navController,
                         startDestination = "tts"
@@ -45,8 +47,10 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable("settings") {
+                            val ttsViewModel: TTSViewModel = koinViewModel()
                             SettingsPage(
-                                onNavigateBack = { navController.popBackStack() }
+                                onNavigateBack = { navController.popBackStack() },
+                                viewModel = ttsViewModel
                             )
                         }
                     }

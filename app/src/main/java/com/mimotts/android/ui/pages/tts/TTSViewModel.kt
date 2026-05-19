@@ -5,7 +5,8 @@ import android.net.Uri
 import androidx.compose.foundation.text.input.TextFieldState
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mimotts.android.data.model.ApiMode
+import com.mimotts.android.data.model.ApiConfig
+import com.mimotts.android.data.model.DEFAULT_API_CONFIG
 import com.mimotts.android.data.api.MiMoApiService
 import com.mimotts.android.data.datastore.SettingsDataStore
 import com.mimotts.android.data.model.AudioFormat
@@ -14,12 +15,12 @@ import com.mimotts.android.data.model.TTSSettings
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import java.util.UUID
 
 class TTSViewModel(
     private val settingsDataStore: SettingsDataStore,
@@ -27,32 +28,47 @@ class TTSViewModel(
 ) : ViewModel() {
 
     val textState = TextFieldState()
-    
+
     private val _settings = MutableStateFlow(TTSSettings())
     val settings: StateFlow<TTSSettings> = _settings.asStateFlow()
-    
+
+    private val _activeApiConfig = MutableStateFlow<ApiConfig?>(null)
+    val activeApiConfig: StateFlow<ApiConfig?> = _activeApiConfig.asStateFlow()
+
     private val _isGenerating = MutableStateFlow(false)
     val isGenerating: StateFlow<Boolean> = _isGenerating.asStateFlow()
-    
+
     private val _generatedAudio = MutableStateFlow<ByteArray?>(null)
     val generatedAudio: StateFlow<ByteArray?> = _generatedAudio.asStateFlow()
-    
+
     private val _audioUri = MutableStateFlow<Uri?>(null)
     val audioUri: StateFlow<Uri?> = _audioUri.asStateFlow()
-    
+
     private val _error = MutableStateFlow<String?>(null)
     val error: StateFlow<String?> = _error.asStateFlow()
-    
+
     private val _activeTags = MutableStateFlow<Set<String>>(emptySet())
     val activeTags: StateFlow<Set<String>> = _activeTags.asStateFlow()
-    
+
     private val _voiceCloneUri = MutableStateFlow<Uri?>(null)
     val voiceCloneUri: StateFlow<Uri?> = _voiceCloneUri.asStateFlow()
 
     init {
         viewModelScope.launch {
             settingsDataStore.settingsFlow.collect { settings ->
-                _settings.value = settings
+                // 确保默认有一个预填配置
+                val finalSettings = if (settings.apiConfigs.isEmpty()) {
+                    val updated = settings.copy(
+                        apiConfigs = listOf(DEFAULT_API_CONFIG),
+                        activeApiId = DEFAULT_API_CONFIG.id
+                    )
+                    settingsDataStore.updateSettings(updated)
+                    updated
+                } else {
+                    settings
+                }
+                _settings.value = finalSettings
+                _activeApiConfig.value = finalSettings.apiConfigs.find { it.id == finalSettings.activeApiId }
             }
         }
     }
@@ -60,7 +76,7 @@ class TTSViewModel(
     fun toggleTag(tagName: String, tagText: String) {
         val currentTags = _activeTags.value.toMutableSet()
         val currentText = textState.text.toString()
-        
+
         if (currentTags.contains(tagName)) {
             currentTags.remove(tagName)
             textState.edit {
@@ -88,21 +104,48 @@ class TTSViewModel(
         _voiceCloneUri.value = uri
     }
 
-    fun updateApiMode(apiMode: ApiMode) {
-        viewModelScope.launch {
-            settingsDataStore.updateApiMode(apiMode)
-        }
-    }
-
-    fun updatePlanToken(token: String) {
-        viewModelScope.launch {
-            settingsDataStore.updatePlanToken(token)
-        }
-    }
-
     fun updateApiKey(apiKey: String) {
         viewModelScope.launch {
-            settingsDataStore.updateApiKey(apiKey)
+            val current = _settings.value
+            val activeConfig = current.apiConfigs.find { it.id == current.activeApiId }
+            if (activeConfig != null) {
+                val updatedConfig = activeConfig.copy(apiKey = apiKey)
+                settingsDataStore.updateApiConfig(updatedConfig)
+            }
+        }
+    }
+
+    fun addApiConfig(name: String, apiKey: String, endpoint: String) {
+        viewModelScope.launch {
+            val config = ApiConfig(
+                id = UUID.randomUUID().toString(),
+                name = name,
+                apiKey = apiKey,
+                apiEndpoint = endpoint
+            )
+            settingsDataStore.addApiConfig(config)
+        }
+    }
+
+    fun removeApiConfig(id: String) {
+        viewModelScope.launch {
+            settingsDataStore.removeApiConfig(id)
+        }
+    }
+
+    fun updateApiConfigName(id: String, name: String) {
+        viewModelScope.launch {
+            val current = _settings.value
+            val config = current.apiConfigs.find { it.id == id }
+            if (config != null) {
+                settingsDataStore.updateApiConfig(config.copy(name = name))
+            }
+        }
+    }
+
+    fun setActiveApiId(id: String) {
+        viewModelScope.launch {
+            settingsDataStore.setActiveApiId(id)
         }
     }
 
@@ -145,16 +188,12 @@ class TTSViewModel(
             }
 
             val currentSettings = _settings.value
-            val token = when (currentSettings.apiMode) {
-                ApiMode.PLAN -> currentSettings.planToken
-                ApiMode.API_KEY -> currentSettings.apiKey
-            }
+            val activeConfig = currentSettings.apiConfigs.find { it.id == currentSettings.activeApiId }
+
+            val token = activeConfig?.apiKey ?: currentSettings.apiKey
 
             if (token.isBlank()) {
-                _error.value = when (currentSettings.apiMode) {
-                    ApiMode.PLAN -> "请输入 Plan Token"
-                    ApiMode.API_KEY -> "请输入 API Key"
-                }
+                _error.value = "请输入 API Key"
                 return@launch
             }
 
@@ -168,10 +207,7 @@ class TTSViewModel(
                     TTSModel.VOICE_CLONE -> "mimo-v2.5-tts-voiceclone"
                 }
 
-                val baseUrl = when (currentSettings.apiMode) {
-                    ApiMode.PLAN -> currentSettings.planEndpoint
-                    ApiMode.API_KEY -> currentSettings.apiEndpoint
-                }
+                val baseUrl = activeConfig?.apiEndpoint ?: currentSettings.apiEndpoint
 
                 val voiceCloneBase64 = if (currentSettings.selectedModel == TTSModel.VOICE_CLONE) {
                     _voiceCloneUri.value?.let { uri ->
@@ -193,7 +229,6 @@ class TTSViewModel(
                 } else null
 
                 val result = apiService.synthesizeSpeech(
-                    apiMode = currentSettings.apiMode,
                     token = token,
                     baseUrl = baseUrl,
                     model = modelId,
@@ -207,7 +242,7 @@ class TTSViewModel(
 
                 result.onSuccess { audioData ->
                     _generatedAudio.value = audioData
-                    
+
                     // Save to file
                     val timestamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
                     val prefix = when (currentSettings.selectedModel) {

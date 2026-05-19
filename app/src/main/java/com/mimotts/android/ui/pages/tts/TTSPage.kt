@@ -7,12 +7,13 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.PlayArrow
@@ -27,7 +28,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.mimotts.android.data.model.ApiMode
 import com.mimotts.android.data.model.AudioFormat
 import com.mimotts.android.data.model.PRESET_VOICES
 import com.mimotts.android.data.model.TAG_GROUPS
@@ -44,37 +44,59 @@ fun TTSPage(
 ) {
     val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }
-    
+
     val settings by viewModel.settings.collectAsStateWithLifecycle()
     val isGenerating by viewModel.isGenerating.collectAsStateWithLifecycle()
     val audioUriState by viewModel.audioUri.collectAsStateWithLifecycle()
     val error by viewModel.error.collectAsStateWithLifecycle()
     val activeTags by viewModel.activeTags.collectAsStateWithLifecycle()
     val voiceCloneUri by viewModel.voiceCloneUri.collectAsStateWithLifecycle()
-    
+
+    // 当前激活的 API 配置
+    val activeApiConfig = settings.apiConfigs.find { it.id == settings.activeApiId }
+
+    // 独立维护文本状态，避免每次 recompose 都触发 viewModel.textState.edit
+    var text by remember { mutableStateOf("") }
+
+    // 双向同步：viewModel.textState 变化时同步到本地 text
+    LaunchedEffect(viewModel.textState.text.toString()) {
+        val viewModelText = viewModel.textState.text.toString()
+        if (viewModelText != text) {
+            text = viewModelText
+        }
+    }
+
+    // 本地 text 变化时同步到 viewModel.textState
+    LaunchedEffect(text) {
+        val viewModelText = viewModel.textState.text.toString()
+        if (viewModelText != text) {
+            viewModel.textState.edit { replace(0, length, text) }
+        }
+    }
+
     var mediaPlayer by remember { mutableStateOf<MediaPlayer?>(null) }
     var isPlaying by remember { mutableStateOf(false) }
-    
+
     val audioPicker = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.GetContent()
     ) { uri: Uri? ->
         uri?.let { viewModel.setVoiceCloneUri(it) }
     }
-    
+
     LaunchedEffect(error) {
         error?.let {
             snackbarHostState.showSnackbar(it)
             viewModel.dismissError()
         }
     }
-    
+
     DisposableEffect(Unit) {
         onDispose {
             mediaPlayer?.release()
             mediaPlayer = null
         }
     }
-    
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -108,26 +130,40 @@ fun TTSPage(
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            ApiModeSection(
-                apiMode = settings.apiMode,
-                onModeChange = { viewModel.updateApiMode(it) }
-            )
-            
-            ApiKeySection(
-                apiMode = settings.apiMode,
-                planToken = settings.planToken,
-                apiKey = settings.apiKey,
-                onPlanTokenChange = { viewModel.updatePlanToken(it) },
-                onApiKeyChange = { viewModel.updateApiKey(it) }
-            )
-            
-            HorizontalDivider()
-            
+            // API 状态提示条
+            Surface(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable(onClick = onNavigateToSettings),
+                shape = MaterialTheme.shapes.small,
+                color = MaterialTheme.colorScheme.surfaceVariant,
+                tonalElevation = 1.dp
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 12.dp, vertical = 10.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        "当前 API: ${activeApiConfig?.name ?: "未配置"}",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    Icon(
+                        Icons.AutoMirrored.Filled.KeyboardArrowRight,
+                        contentDescription = "前往设置",
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            }
+
             ModelSelectionSection(
                 selectedModel = settings.selectedModel,
                 onModelChange = { viewModel.updateSelectedModel(it) }
             )
-            
+
             when (settings.selectedModel) {
                 TTSModel.PRESET -> VoiceSelectionSection(
                     selectedVoice = settings.selectedVoice,
@@ -142,27 +178,27 @@ fun TTSPage(
                     onPickAudio = { audioPicker.launch("audio/*") }
                 )
             }
-            
+
             AudioFormatSection(
                 format = settings.audioFormat,
                 onFormatChange = { viewModel.updateAudioFormat(it) }
             )
-            
+
             HorizontalDivider()
-            
+
             TextInputSection(
-                text = viewModel.textState.text.toString(),
-                onTextChange = { viewModel.textState.edit { replace(0, length, it) } },
+                text = text,
+                onTextChange = { text = it },
                 activeTags = activeTags,
-                onToggleTag = { name, text -> viewModel.toggleTag(name, text) },
-                onClear = { viewModel.clearAll() }
+                onToggleTag = { name, tagText -> viewModel.toggleTag(name, tagText) },
+                onClear = { viewModel.clearAll(); text = "" }
             )
-            
+
             GenerateButton(
                 isGenerating = isGenerating,
                 onGenerate = { viewModel.generateSpeech(context) }
             )
-            
+
             AnimatedVisibility(
                 visible = audioUriState != null,
                 enter = fadeIn(),
@@ -198,82 +234,6 @@ fun TTSPage(
 }
 
 @Composable
-private fun ApiModeSection(
-    apiMode: ApiMode,
-    onModeChange: (ApiMode) -> Unit
-) {
-    Column {
-        Text(
-            "API 接入方式",
-            style = MaterialTheme.typography.labelLarge,
-            color = MaterialTheme.colorScheme.primary,
-            modifier = Modifier.padding(bottom = 8.dp)
-        )
-        
-        SingleChoiceSegmentedButtonRow(modifier = Modifier.fillMaxWidth()) {
-            SegmentedButton(
-                selected = apiMode == ApiMode.PLAN,
-                onClick = { onModeChange(ApiMode.PLAN) },
-                shape = SegmentedButtonDefaults.itemShape(index = 0, count = 2)
-            ) {
-                Text("MiMo Plan")
-            }
-            SegmentedButton(
-                selected = apiMode == ApiMode.API_KEY,
-                onClick = { onModeChange(ApiMode.API_KEY) },
-                shape = SegmentedButtonDefaults.itemShape(index = 1, count = 2)
-            ) {
-                Text("API Key")
-            }
-        }
-    }
-}
-
-@Composable
-private fun ApiKeySection(
-    apiMode: ApiMode,
-    planToken: String,
-    apiKey: String,
-    onPlanTokenChange: (String) -> Unit,
-    onApiKeyChange: (String) -> Unit
-) {
-    when (apiMode) {
-        ApiMode.PLAN -> {
-            OutlinedTextField(
-                value = planToken,
-                onValueChange = onPlanTokenChange,
-                label = { Text("Plan Token") },
-                placeholder = { Text("mimo-plan-...") },
-                modifier = Modifier.fillMaxWidth(),
-                singleLine = true
-            )
-            Text(
-                "在 MiMo Plan 控制台获取 Token",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.padding(top = 4.dp)
-            )
-        }
-        ApiMode.API_KEY -> {
-            OutlinedTextField(
-                value = apiKey,
-                onValueChange = onApiKeyChange,
-                label = { Text("API Key") },
-                placeholder = { Text("sk-...") },
-                modifier = Modifier.fillMaxWidth(),
-                singleLine = true
-            )
-            Text(
-                "从 platform.xiaomimimo.com 获取",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.padding(top = 4.dp)
-            )
-        }
-    }
-}
-
-@Composable
 private fun ModelSelectionSection(
     selectedModel: TTSModel,
     onModelChange: (TTSModel) -> Unit
@@ -285,7 +245,7 @@ private fun ModelSelectionSection(
             color = MaterialTheme.colorScheme.primary,
             modifier = Modifier.padding(bottom = 8.dp)
         )
-        
+
         SingleChoiceSegmentedButtonRow(modifier = Modifier.fillMaxWidth()) {
             SegmentedButton(
                 selected = selectedModel == TTSModel.PRESET,
@@ -319,7 +279,7 @@ private fun VoiceSelectionSection(
     onVoiceChange: (String) -> Unit
 ) {
     var expanded by remember { mutableStateOf(false) }
-    
+
     ExposedDropdownMenuBox(
         expanded = expanded,
         onExpandedChange = { expanded = it }
@@ -334,7 +294,7 @@ private fun VoiceSelectionSection(
                 .fillMaxWidth()
                 .menuAnchor()
         )
-        
+
         ExposedDropdownMenu(
             expanded = expanded,
             onDismissRequest = { expanded = false }
@@ -365,7 +325,8 @@ private fun VoiceDesignSection(
         modifier = Modifier.fillMaxWidth(),
         minLines = 2,
         maxLines = 4,
-        singleLine = false
+        singleLine = false,
+        keyboardOptions = KeyboardOptions(imeAction = ImeAction.None)
     )
     Text(
         "描述越具体，生成的音色越贴近预期",
@@ -399,7 +360,7 @@ private fun VoiceCloneSection(
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
-            
+
             if (cloneUri != null) {
                 Text(
                     "已选择: ${cloneUri.lastPathSegment}",
@@ -407,7 +368,7 @@ private fun VoiceCloneSection(
                     color = MaterialTheme.colorScheme.primary
                 )
             }
-            
+
             Button(
                 onClick = onPickAudio,
                 modifier = Modifier.fillMaxWidth()
@@ -432,13 +393,13 @@ private fun AudioFormatSection(
             "音频格式:",
             style = MaterialTheme.typography.bodyMedium
         )
-        
+
         FilterChip(
             selected = format == AudioFormat.WAV,
             onClick = { onFormatChange(AudioFormat.WAV) },
             label = { Text("WAV") }
         )
-        
+
         FilterChip(
             selected = format == AudioFormat.MP3,
             onClick = { onFormatChange(AudioFormat.MP3) },
@@ -484,14 +445,14 @@ private fun TextInputSection(
                 }
             }
         }
-        
+
         Spacer(modifier = Modifier.height(8.dp))
-        
+
         OutlinedTextField(
             value = text,
             onValueChange = onTextChange,
             label = { Text("合成文本") },
-            placeholder = { 
+            placeholder = {
                 Text(
                     "在这里输入要合成的文本...\n" +
                     "示例：\n" +
@@ -506,7 +467,7 @@ private fun TextInputSection(
             maxLines = 10,
             keyboardOptions = KeyboardOptions(imeAction = ImeAction.Default)
         )
-        
+
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
@@ -547,7 +508,7 @@ private fun GenerateButton(
             Spacer(modifier = Modifier.width(8.dp))
             Text("正在合成...")
         } else {
-            Text("🎵 开始合成")
+            Text("开始合成")
         }
     }
 }
@@ -604,15 +565,24 @@ private fun AudioPlayerCard(
                 }
             }
 
-            // 下载按钮
-            IconButton(
-                onClick = onDownload,
-                modifier = Modifier.size(48.dp)
+            // 下载按钮 - 使用 Settings 图标作为临时替代，添加文字标签
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Icon(
-                    imageVector = Icons.Default.PlayArrow,
-                    contentDescription = "下载音频",
-                    modifier = Modifier.size(24.dp)
+                IconButton(
+                    onClick = onDownload,
+                    modifier = Modifier.size(48.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Settings,
+                        contentDescription = "保存音频",
+                        modifier = Modifier.size(24.dp)
+                    )
+                }
+                Text(
+                    "保存",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
         }
