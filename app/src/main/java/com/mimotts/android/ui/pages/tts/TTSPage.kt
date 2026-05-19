@@ -7,6 +7,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.foundation.relocation.BringIntoViewRequester
+import androidx.compose.foundation.relocation.bringIntoViewRequester
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -28,6 +30,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import kotlinx.coroutines.launch
 import com.mimotts.android.data.model.AudioFormat
 import com.mimotts.android.data.model.PRESET_VOICES
 import com.mimotts.android.data.model.TAG_GROUPS
@@ -57,6 +60,8 @@ fun TTSPage(
 
     // 独立维护文本状态，避免每次 recompose 都触发 viewModel.textState.edit
     var text by remember { mutableStateOf("") }
+
+    val bringIntoViewRequester = remember { BringIntoViewRequester() }
 
     // 音色描述本地状态，避免每次输入都触发 DataStore 更新导致焦点丢失
     var voiceDescription by remember { mutableStateOf(settings.voiceDescription) }
@@ -205,7 +210,8 @@ fun TTSPage(
                 onTextChange = { text = it },
                 activeTags = activeTags,
                 onToggleTag = { name, tagText -> viewModel.toggleTag(name, tagText) },
-                onClear = { viewModel.clearAll(); text = "" }
+                onClear = { viewModel.clearAll(); text = "" },
+                bringIntoViewRequester = bringIntoViewRequester
             )
 
             GenerateButton(
@@ -437,8 +443,10 @@ private fun TextInputSection(
     onTextChange: (String) -> Unit,
     activeTags: Set<String>,
     onToggleTag: (String, String) -> Unit,
-    onClear: () -> Unit
+    onClear: () -> Unit,
+    bringIntoViewRequester: BringIntoViewRequester
 ) {
+    val coroutineScope = rememberCoroutineScope()
     Column {
         TAG_GROUPS.forEach { group ->
             Column(modifier = Modifier.padding(bottom = 8.dp)) {
@@ -472,7 +480,12 @@ private fun TextInputSection(
 
         OutlinedTextField(
             value = text,
-            onValueChange = onTextChange,
+            onValueChange = {
+                onTextChange(it)
+                coroutineScope.launch {
+                    bringIntoViewRequester.bringIntoView()
+                }
+            },
             label = { Text("合成文本") },
             placeholder = {
                 Text(
@@ -485,7 +498,8 @@ private fun TextInputSection(
             },
             modifier = Modifier
                 .fillMaxWidth()
-                .height(200.dp),
+                .height(200.dp)
+                .bringIntoViewRequester(bringIntoViewRequester),
             maxLines = 10,
             keyboardOptions = KeyboardOptions(imeAction = ImeAction.Default)
         )

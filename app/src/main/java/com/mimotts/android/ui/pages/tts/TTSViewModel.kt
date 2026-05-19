@@ -28,6 +28,24 @@ class TTSViewModel(
     private val apiService: MiMoApiService
 ) : ViewModel() {
 
+    data class LogEntry(
+        val timestamp: Long = System.currentTimeMillis(),
+        val level: String, // "INFO", "ERROR", "SUCCESS"
+        val message: String
+    )
+
+    private val _logEntries = MutableStateFlow<List<LogEntry>>(emptyList())
+    val logEntries: StateFlow<List<LogEntry>> = _logEntries.asStateFlow()
+
+    private fun addLog(level: String, message: String) {
+        val entry = LogEntry(timestamp = System.currentTimeMillis(), level = level, message = message)
+        _logEntries.value = (_logEntries.value + entry).takeLast(200) // 最多保留200条
+    }
+
+    fun clearLogs() {
+        _logEntries.value = emptyList()
+    }
+
     val textState = TextFieldState()
 
     private val _settings = MutableStateFlow(TTSSettings())
@@ -212,6 +230,8 @@ class TTSViewModel(
                     TTSModel.VOICE_CLONE -> "mimo-v2.5-tts-voiceclone"
                 }
 
+                addLog("INFO", "开始合成: model=$modelId, text=${text.take(30)}...")
+
                 val baseUrl = activeConfig?.apiEndpoint ?: currentSettings.apiEndpoint
 
                 val voiceCloneBase64 = if (currentSettings.selectedModel == TTSModel.VOICE_CLONE) {
@@ -262,6 +282,8 @@ class TTSViewModel(
                     file.writeBytes(audioData)
                     _audioUri.value = Uri.fromFile(file)
 
+                    addLog("SUCCESS", "合成成功: ${file.name}")
+
                     // 添加到历史记录
                     val historyItem = TTSHistoryItem(
                         id = UUID.randomUUID().toString(),
@@ -279,9 +301,11 @@ class TTSViewModel(
                     _historyItems.value = listOf(historyItem) + _historyItems.value
                 }.onFailure { e ->
                     _error.value = "合成失败: ${e.message}"
+                    addLog("ERROR", "合成失败: ${e.message}")
                 }
             } catch (e: Exception) {
                 _error.value = "合成失败: ${e.message}"
+                addLog("ERROR", "合成失败: ${e.message}")
             } finally {
                 _isGenerating.value = false
             }
@@ -340,8 +364,10 @@ class TTSViewModel(
                 )
 
                 _error.value = "已保存到下载目录: $filename"
+                addLog("SUCCESS", "音频已保存: $filename")
             } catch (e: Exception) {
                 _error.value = "下载失败: ${e.message}"
+                addLog("ERROR", "保存失败: ${e.message}")
             }
         }
     }

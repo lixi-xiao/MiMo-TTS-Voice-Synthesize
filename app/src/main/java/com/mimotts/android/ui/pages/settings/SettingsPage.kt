@@ -2,6 +2,8 @@ package com.mimotts.android.ui.pages.settings
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -23,6 +25,9 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.mimotts.android.data.model.ApiConfig
 import com.mimotts.android.ui.pages.tts.TTSViewModel
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -37,15 +42,24 @@ fun SettingsPage(
     var showAddDialog by remember { mutableStateOf(false) }
     var editingConfig by remember { mutableStateOf<ApiConfig?>(null) }
     var showOpenSourceInfo by remember { mutableStateOf(false) }
+    var showLogs by remember { mutableStateOf(false) }
 
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(if (showOpenSourceInfo) "开源信息" else "设置") },
+                title = { Text(
+                    when {
+                        showOpenSourceInfo -> "开源信息"
+                        showLogs -> "日志记录"
+                        else -> "设置"
+                    }
+                ) },
                 navigationIcon = {
                     IconButton(onClick = {
                         if (showOpenSourceInfo) {
                             showOpenSourceInfo = false
+                        } else if (showLogs) {
+                            showLogs = false
                         } else {
                             onNavigateBack()
                         }
@@ -170,6 +184,55 @@ fun SettingsPage(
                     }
                 }
             }
+        } else if (showLogs) {
+            // 日志记录页面
+            val logs by viewModel.logEntries.collectAsStateWithLifecycle()
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(padding)
+            ) {
+                // 顶部操作栏
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp, vertical = 8.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        "共 ${logs.size} 条记录",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    TextButton(onClick = { viewModel.clearLogs() }) {
+                        Text("清空日志")
+                    }
+                }
+
+                if (logs.isEmpty()) {
+                    Box(
+                        modifier = Modifier.fillMaxSize(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            "暂无日志记录",
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                } else {
+                    LazyColumn(
+                        modifier = Modifier.fillMaxSize(),
+                        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
+                        verticalArrangement = Arrangement.spacedBy(4.dp)
+                    ) {
+                        items(logs.reversed()) { log ->
+                            LogEntryItem(log = log)
+                        }
+                    }
+                }
+            }
         } else {
             // 正常设置页面
             Column(
@@ -250,6 +313,50 @@ fun SettingsPage(
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
+                    }
+                }
+
+                // 日志记录区域
+                Card(
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Column(
+                        modifier = Modifier.padding(16.dp),
+                        verticalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        Text(
+                            "调试工具",
+                            style = MaterialTheme.typography.titleMedium,
+                            fontWeight = FontWeight.Bold
+                        )
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clickable { showLogs = true }
+                                .padding(vertical = 8.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Icon(
+                                Icons.Default.List,
+                                contentDescription = null,
+                                tint = MaterialTheme.colorScheme.primary,
+                                modifier = Modifier.size(20.dp)
+                            )
+                            Spacer(modifier = Modifier.width(12.dp))
+                            Column(modifier = Modifier.weight(1f)) {
+                                Text(
+                                    "日志记录",
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    color = MaterialTheme.colorScheme.primary
+                                )
+                                val logCount = viewModel.logEntries.collectAsStateWithLifecycle().value.size
+                                Text(
+                                    "${logCount} 条记录",
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
+                        }
                     }
                 }
 
@@ -532,5 +639,52 @@ private fun TechItem(name: String, desc: String) {
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
+    }
+}
+
+@Composable
+private fun LogEntryItem(log: TTSViewModel.LogEntry) {
+    val timeFormat = SimpleDateFormat("MM-dd HH:mm:ss", Locale.getDefault())
+    val time = timeFormat.format(Date(log.timestamp))
+
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        colors = CardDefaults.cardColors(
+            containerColor = when (log.level) {
+                "ERROR" -> MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.3f)
+                "SUCCESS" -> MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.3f)
+                else -> MaterialTheme.colorScheme.surfaceVariant
+            }
+        )
+    ) {
+        Column(
+            modifier = Modifier.padding(12.dp),
+            verticalArrangement = Arrangement.spacedBy(4.dp)
+        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Text(
+                    log.level,
+                    style = MaterialTheme.typography.labelSmall,
+                    color = when (log.level) {
+                        "ERROR" -> MaterialTheme.colorScheme.error
+                        "SUCCESS" -> MaterialTheme.colorScheme.primary
+                        else -> MaterialTheme.colorScheme.onSurfaceVariant
+                    }
+                )
+                Text(
+                    time,
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+            Text(
+                log.message,
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurface
+            )
+        }
     }
 }
