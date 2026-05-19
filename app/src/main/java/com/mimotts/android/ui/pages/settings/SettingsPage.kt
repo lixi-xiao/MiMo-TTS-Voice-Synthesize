@@ -9,8 +9,7 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.Visibility
-import androidx.compose.material.icons.filled.VisibilityOff
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -329,7 +328,7 @@ private fun ApiConfigDialog(
                     trailingIcon = {
                         IconButton(onClick = { showApiKey = !showApiKey }) {
                             Icon(
-                                if (showApiKey) Icons.Default.VisibilityOff else Icons.Default.Visibility,
+                                if (showApiKey) Icons.Default.Edit else Icons.Default.Settings,
                                 contentDescription = if (showApiKey) "隐藏密码" else "显示密码"
                             )
                         }
