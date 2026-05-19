@@ -9,7 +9,7 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.text.input.TextFieldLineLimits
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -22,8 +22,9 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.mimotts.android.data.model.ApiMode
@@ -150,7 +151,8 @@ fun TTSPage(
             HorizontalDivider()
             
             TextInputSection(
-                textState = viewModel.textState,
+                text = viewModel.textState.text.toString(),
+                onTextChange = { viewModel.textState.edit { replace(0, length, it) } },
                 activeTags = activeTags,
                 onToggleTag = { name, text -> viewModel.toggleTag(name, text) },
                 onClear = { viewModel.clearAll() }
@@ -442,7 +444,8 @@ private fun AudioFormatSection(
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun TextInputSection(
-    textState: androidx.compose.foundation.text.input.TextFieldState,
+    text: String,
+    onTextChange: (String) -> Unit,
     activeTags: Set<String>,
     onToggleTag: (String, String) -> Unit,
     onClear: () -> Unit
@@ -479,7 +482,8 @@ private fun TextInputSection(
         Spacer(modifier = Modifier.height(8.dp))
         
         OutlinedTextField(
-            state = textState,
+            value = text,
+            onValueChange = onTextChange,
             label = { Text("合成文本") },
             placeholder = { 
                 Text(
@@ -493,7 +497,8 @@ private fun TextInputSection(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(200.dp),
-            lineLimits = TextFieldLineLimits.MultiLine(minHeightInLines = 5, maxHeightInLines = 10)
+            maxLines = 10,
+            keyboardOptions = KeyboardOptions(imeAction = ImeAction.Default)
         )
         
         Row(
@@ -502,7 +507,7 @@ private fun TextInputSection(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                "${textState.text.length} 字",
+                "${text.length} 字",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
