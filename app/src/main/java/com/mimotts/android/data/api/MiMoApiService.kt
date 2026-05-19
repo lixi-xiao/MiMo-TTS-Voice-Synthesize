@@ -73,8 +73,16 @@ class MiMoApiService {
                 setBody(request)
             }
 
-            if (response.status.value != 200) {
-                return Result.failure(Exception("API 请求失败 (HTTP ${response.status.value})，请检查 API Key"))
+            val statusCode = response.status.value
+            if (statusCode != 200) {
+                val errorMsg = when (statusCode) {
+                    401 -> "API Key 无效或已过期，请在设置中检查"
+                    403 -> "API Key 无权限访问此资源"
+                    429 -> "请求频率超限，请稍后再试（建议等待1-2分钟）"
+                    500, 502, 503 -> "服务器暂时不可用，请稍后再试"
+                    else -> "API 请求失败 (HTTP $statusCode)"
+                }
+                return Result.failure(Exception(errorMsg))
             }
 
             val body: ChatCompletionResponse = response.body()
