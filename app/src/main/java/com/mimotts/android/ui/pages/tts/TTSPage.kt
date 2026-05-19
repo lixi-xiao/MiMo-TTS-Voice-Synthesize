@@ -160,7 +160,7 @@ fun TTSPage(
             
             GenerateButton(
                 isGenerating = isGenerating,
-                onGenerate = { viewModel.generateSpeech(context.cacheDir) }
+                onGenerate = { viewModel.generateSpeech(context) }
             )
             
             AnimatedVisibility(

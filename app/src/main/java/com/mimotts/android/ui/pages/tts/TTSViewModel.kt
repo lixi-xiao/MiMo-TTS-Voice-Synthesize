@@ -1,5 +1,6 @@
 package com.mimotts.android.ui.pages.tts
 
+import android.content.Context
 import android.net.Uri
 import androidx.compose.foundation.text.input.TextFieldState
 import androidx.lifecycle.ViewModel
@@ -135,7 +136,7 @@ class TTSViewModel(
         }
     }
 
-    fun generateSpeech(cacheDir: File) {
+    fun generateSpeech(context: Context) {
         viewModelScope.launch {
             val text = textState.text.toString().trim()
             if (text.isEmpty()) {
@@ -174,9 +175,20 @@ class TTSViewModel(
 
                 val voiceCloneBase64 = if (currentSettings.selectedModel == TTSModel.VOICE_CLONE) {
                     _voiceCloneUri.value?.let { uri ->
-                        cacheDir.resolve("temp_clone").readBytes().let {
-                            android.util.Base64.encodeToString(it, android.util.Base64.DEFAULT)
+                        try {
+                            context.contentResolver.openInputStream(uri)?.use { inputStream ->
+                                val bytes = inputStream.readBytes()
+                                android.util.Base64.encodeToString(bytes, android.util.Base64.DEFAULT)
+                            }
+                        } catch (e: Exception) {
+                            _error.value = "读取音频文件失败: ${e.message}"
+                            _isGenerating.value = false
+                            return@launch
                         }
+                    } ?: run {
+                        _error.value = "请先选择要克隆的音频文件"
+                        _isGenerating.value = false
+                        return@launch
                     }
                 } else null
 
@@ -203,7 +215,7 @@ class TTSViewModel(
                         else -> currentSettings.selectedVoice
                     }
                     val filename = "mimo_tts_${prefix}_$timestamp.${currentSettings.audioFormat.name.lowercase()}"
-                    val file = File(cacheDir, filename)
+                    val file = File(context.cacheDir, filename)
                     file.writeBytes(audioData)
                     _audioUri.value = Uri.fromFile(file)
                 }.onFailure { e ->
