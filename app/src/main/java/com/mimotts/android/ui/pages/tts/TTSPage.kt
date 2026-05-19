@@ -321,15 +321,23 @@ private fun VoiceDesignSection(
         value = description,
         onValueChange = onDescriptionChange,
         label = { Text("音色描述") },
-        placeholder = { Text("例如：温柔的女声，像电台主持人一样") },
-        modifier = Modifier.fillMaxWidth(),
-        minLines = 2,
-        maxLines = 4,
+        placeholder = {
+            Text(
+                "描述你想要的音色特征...\n" +
+                "例如：温柔的女声，像电台主持人一样\n" +
+                "建议包含：性别、年龄、音色质感、情绪语气\n" +
+                "支持中英文描述"
+            )
+        },
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(200.dp),
+        maxLines = 10,
         singleLine = false,
         keyboardOptions = KeyboardOptions(imeAction = ImeAction.None)
     )
     Text(
-        "描述越具体，生成的音色越贴近预期",
+        "描述越具体，生成的音色越贴近预期（1-4句即可）",
         style = MaterialTheme.typography.bodySmall,
         color = MaterialTheme.colorScheme.onSurfaceVariant,
         modifier = Modifier.padding(top = 4.dp)

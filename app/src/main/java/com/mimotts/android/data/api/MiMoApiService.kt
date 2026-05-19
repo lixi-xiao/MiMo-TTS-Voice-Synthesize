@@ -9,6 +9,7 @@ import io.ktor.client.plugins.timeout
 import io.ktor.client.request.header
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
+import io.ktor.client.statement.HttpResponse
 import io.ktor.http.ContentType
 import io.ktor.http.contentType
 import io.ktor.serialization.kotlinx.json.json
@@ -62,17 +63,22 @@ class MiMoApiService {
                 audio = audioPayload
             )
 
-            val response: ChatCompletionResponse = client.post("$baseUrl/chat/completions") {
+            val response: HttpResponse = client.post("$baseUrl/chat/completions") {
                 contentType(ContentType.Application.Json)
                 header("api-key", token)
-                header("Authorization", "Bearer $token")
                 timeout {
                     requestTimeoutMillis = 120000 // 增加到120秒，音色克隆可能需要更长时间
                 }
                 setBody(request)
-            }.body()
+            }
 
-            val audioData = response.choices
+            if (response.status.value != 200) {
+                return Result.failure(Exception("API 请求失败 (HTTP ${response.status.value})，请检查 API Key"))
+            }
+
+            val body: ChatCompletionResponse = response.body()
+
+            val audioData = body.choices
                 ?.firstOrNull()
                 ?.message
                 ?.audio
@@ -81,10 +87,10 @@ class MiMoApiService {
             if (audioData != null) {
                 Result.success(Base64.decode(audioData, Base64.DEFAULT))
             } else {
-                val contentMsg = response.choices?.firstOrNull()?.message?.content
+                val contentMsg = body.choices?.firstOrNull()?.message?.content
                 val errorMsg = if (!contentMsg.isNullOrBlank()) {
                     "API 未返回音频数据: $contentMsg"
-                } else if (response.choices.isNullOrEmpty()) {
+                } else if (body.choices.isNullOrEmpty()) {
                     "API 返回空结果，请检查 API Key 是否有效"
                 } else {
                     "API 未返回音频数据，请检查音频样本格式（仅支持 mp3 和 wav）"
@@ -117,12 +123,13 @@ class MiMoApiService {
                 )
             }
             model.contains("voiceclone") -> {
-                // 音色克隆：assistant 消息提供合成文本，user 消息提供可选的风格指令
-                val userContent = styleInstruction.takeIf { it.isNotBlank() } ?: "请用提供的音色朗读以下文本"
-                listOf(
-                    Message(role = "user", content = userContent),
-                    Message(role = "assistant", content = text)
-                )
+                // 音色克隆：user 消息可选，assistant 消息提供合成文本
+                val messages = mutableListOf<Message>()
+                if (styleInstruction.isNotBlank()) {
+                    messages.add(Message(role = "user", content = styleInstruction))
+                }
+                messages.add(Message(role = "assistant", content = text))
+                messages
             }
             else -> {
                 // 预设音色：user 消息可包含风格指令
