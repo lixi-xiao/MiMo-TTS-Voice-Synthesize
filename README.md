@@ -98,3 +98,2920 @@ python src/build_desktop_app.py
 ***
 
 <p align="center">Made with ❤️ by lixi</p>
+# MiMo T# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xia# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/M# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** -# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+-# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+-# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+- 创建应用并获取 Token
+- 格式：`mimo-plan-...`
+
+**# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+- 创建应用并获取 Token
+- 格式：`mimo-plan-...`
+
+**方式二：API Key**
+- 访问# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+- 创建应用并获取 Token
+- 格式：`mimo-plan-...`
+
+**方式二：API Key**
+- 访问 [MiMo 开放平台](https://platform.xiaomimimo.com)
+- 注册# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+- 创建应用并获取 Token
+- 格式：`mimo-plan-...`
+
+**方式二：API Key**
+- 访问 [MiMo 开放平台](https://platform.xiaomimimo.com)
+- 注册账号并创建应用
+- 获取 API Key（格式：`sk-...`）
+# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+- 创建应用并获取 Token
+- 格式：`mimo-plan-...`
+
+**方式二：API Key**
+- 访问 [MiMo 开放平台](https://platform.xiaomimimo.com)
+- 注册账号并创建应用
+- 获取 API Key（格式：`sk-...`）
+
+### 2. 配置应用
+
+1. 打开应用
+2. 选择 API 接入方式（MiMo Plan / API# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+- 创建应用并获取 Token
+- 格式：`mimo-plan-...`
+
+**方式二：API Key**
+- 访问 [MiMo 开放平台](https://platform.xiaomimimo.com)
+- 注册账号并创建应用
+- 获取 API Key（格式：`sk-...`）
+
+### 2. 配置应用
+
+1. 打开应用
+2. 选择 API 接入方式（MiMo Plan / API Key）
+3. 输入对应的 Token# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+- 创建应用并获取 Token
+- 格式：`mimo-plan-...`
+
+**方式二：API Key**
+- 访问 [MiMo 开放平台](https://platform.xiaomimimo.com)
+- 注册账号并创建应用
+- 获取 API Key（格式：`sk-...`）
+
+### 2. 配置应用
+
+1. 打开应用
+2. 选择 API 接入方式（MiMo Plan / API Key）
+3. 输入对应的 Token 或 API Key
+4. 选择模型# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+- 创建应用并获取 Token
+- 格式：`mimo-plan-...`
+
+**方式二：API Key**
+- 访问 [MiMo 开放平台](https://platform.xiaomimimo.com)
+- 注册账号并创建应用
+- 获取 API Key（格式：`sk-...`）
+
+### 2. 配置应用
+
+1. 打开应用
+2. 选择 API 接入方式（MiMo Plan / API Key）
+3. 输入对应的 Token 或 API Key
+4. 选择模型和音色
+5. 输入文本，点击合成
+
+### 3. 使用标签# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+- 创建应用并获取 Token
+- 格式：`mimo-plan-...`
+
+**方式二：API Key**
+- 访问 [MiMo 开放平台](https://platform.xiaomimimo.com)
+- 注册账号并创建应用
+- 获取 API Key（格式：`sk-...`）
+
+### 2. 配置应用
+
+1. 打开应用
+2. 选择 API 接入方式（MiMo Plan / API Key）
+3. 输入对应的 Token 或 API Key
+4. 选择模型和音色
+5. 输入文本，点击合成
+
+### 3. 使用标签
+
+在文本中插入标签控制语音风格：
+
+```
+(开心)你好呀，今天天气真好！
+(# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+- 创建应用并获取 Token
+- 格式：`mimo-plan-...`
+
+**方式二：API Key**
+- 访问 [MiMo 开放平台](https://platform.xiaomimimo.com)
+- 注册账号并创建应用
+- 获取 API Key（格式：`sk-...`）
+
+### 2. 配置应用
+
+1. 打开应用
+2. 选择 API 接入方式（MiMo Plan / API Key）
+3. 输入对应的 Token 或 API Key
+4. 选择模型和音色
+5. 输入文本，点击合成
+
+### 3. 使用标签
+
+在文本中插入标签控制语音风格：
+
+```
+(开心)你好呀，今天天气真好！
+(东北话)哥们儿，整点啥？
+(唱歌)小星星，亮晶晶
+# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+- 创建应用并获取 Token
+- 格式：`mimo-plan-...`
+
+**方式二：API Key**
+- 访问 [MiMo 开放平台](https://platform.xiaomimimo.com)
+- 注册账号并创建应用
+- 获取 API Key（格式：`sk-...`）
+
+### 2. 配置应用
+
+1. 打开应用
+2. 选择 API 接入方式（MiMo Plan / API Key）
+3. 输入对应的 Token 或 API Key
+4. 选择模型和音色
+5. 输入文本，点击合成
+
+### 3. 使用标签
+
+在文本中插入标签控制语音风格：
+
+```
+(开心)你好呀，今天天气真好！
+(东北话)哥们儿，整点啥？
+(唱歌)小星星，亮晶晶
+[笑]哈哈哈
+```
+
+## 📋 系统要求
+
+- Android 8.0+ (API 26+)
+-# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+- 创建应用并获取 Token
+- 格式：`mimo-plan-...`
+
+**方式二：API Key**
+- 访问 [MiMo 开放平台](https://platform.xiaomimimo.com)
+- 注册账号并创建应用
+- 获取 API Key（格式：`sk-...`）
+
+### 2. 配置应用
+
+1. 打开应用
+2. 选择 API 接入方式（MiMo Plan / API Key）
+3. 输入对应的 Token 或 API Key
+4. 选择模型和音色
+5. 输入文本，点击合成
+
+### 3. 使用标签
+
+在文本中插入标签控制语音风格：
+
+```
+(开心)你好呀，今天天气真好！
+(东北话)哥们儿，整点啥？
+(唱歌)小星星，亮晶晶
+[笑]哈哈哈
+```
+
+## 📋 系统要求
+
+- Android 8.0+ (API 26+)
+- 网络连接（用于调用 MiMo API）# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+- 创建应用并获取 Token
+- 格式：`mimo-plan-...`
+
+**方式二：API Key**
+- 访问 [MiMo 开放平台](https://platform.xiaomimimo.com)
+- 注册账号并创建应用
+- 获取 API Key（格式：`sk-...`）
+
+### 2. 配置应用
+
+1. 打开应用
+2. 选择 API 接入方式（MiMo Plan / API Key）
+3. 输入对应的 Token 或 API Key
+4. 选择模型和音色
+5. 输入文本，点击合成
+
+### 3. 使用标签
+
+在文本中插入标签控制语音风格：
+
+```
+(开心)你好呀，今天天气真好！
+(东北话)哥们儿，整点啥？
+(唱歌)小星星，亮晶晶
+[笑]哈哈哈
+```
+
+## 📋 系统要求
+
+- Android 8.0+ (API 26+)
+- 网络连接（用于调用 MiMo API）
+- 存储权限（用于保存音频文件）
+
+## 🛠️ 技术# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+- 创建应用并获取 Token
+- 格式：`mimo-plan-...`
+
+**方式二：API Key**
+- 访问 [MiMo 开放平台](https://platform.xiaomimimo.com)
+- 注册账号并创建应用
+- 获取 API Key（格式：`sk-...`）
+
+### 2. 配置应用
+
+1. 打开应用
+2. 选择 API 接入方式（MiMo Plan / API Key）
+3. 输入对应的 Token 或 API Key
+4. 选择模型和音色
+5. 输入文本，点击合成
+
+### 3. 使用标签
+
+在文本中插入标签控制语音风格：
+
+```
+(开心)你好呀，今天天气真好！
+(东北话)哥们儿，整点啥？
+(唱歌)小星星，亮晶晶
+[笑]哈哈哈
+```
+
+## 📋 系统要求
+
+- Android 8.0+ (API 26+)
+- 网络连接（用于调用 MiMo API）
+- 存储权限（用于保存音频文件）
+
+## 🛠️ 技术栈
+
+- [Kotlin](https://kotlin# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+- 创建应用并获取 Token
+- 格式：`mimo-plan-...`
+
+**方式二：API Key**
+- 访问 [MiMo 开放平台](https://platform.xiaomimimo.com)
+- 注册账号并创建应用
+- 获取 API Key（格式：`sk-...`）
+
+### 2. 配置应用
+
+1. 打开应用
+2. 选择 API 接入方式（MiMo Plan / API Key）
+3. 输入对应的 Token 或 API Key
+4. 选择模型和音色
+5. 输入文本，点击合成
+
+### 3. 使用标签
+
+在文本中插入标签控制语音风格：
+
+```
+(开心)你好呀，今天天气真好！
+(东北话)哥们儿，整点啥？
+(唱歌)小星星，亮晶晶
+[笑]哈哈哈
+```
+
+## 📋 系统要求
+
+- Android 8.0+ (API 26+)
+- 网络连接（用于调用 MiMo API）
+- 存储权限（用于保存音频文件）
+
+## 🛠️ 技术栈
+
+- [Kotlin](https://kotlinlang.org/) - 开发语言
+- [Jetpack Compose](https://developer.android.com/j# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+- 创建应用并获取 Token
+- 格式：`mimo-plan-...`
+
+**方式二：API Key**
+- 访问 [MiMo 开放平台](https://platform.xiaomimimo.com)
+- 注册账号并创建应用
+- 获取 API Key（格式：`sk-...`）
+
+### 2. 配置应用
+
+1. 打开应用
+2. 选择 API 接入方式（MiMo Plan / API Key）
+3. 输入对应的 Token 或 API Key
+4. 选择模型和音色
+5. 输入文本，点击合成
+
+### 3. 使用标签
+
+在文本中插入标签控制语音风格：
+
+```
+(开心)你好呀，今天天气真好！
+(东北话)哥们儿，整点啥？
+(唱歌)小星星，亮晶晶
+[笑]哈哈哈
+```
+
+## 📋 系统要求
+
+- Android 8.0+ (API 26+)
+- 网络连接（用于调用 MiMo API）
+- 存储权限（用于保存音频文件）
+
+## 🛠️ 技术栈
+
+- [Kotlin](https://kotlinlang.org/) - 开发语言
+- [Jetpack Compose](https://developer.android.com/jetpack/compose) - UI 框架
+- [Material Design 3](https://m# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+- 创建应用并获取 Token
+- 格式：`mimo-plan-...`
+
+**方式二：API Key**
+- 访问 [MiMo 开放平台](https://platform.xiaomimimo.com)
+- 注册账号并创建应用
+- 获取 API Key（格式：`sk-...`）
+
+### 2. 配置应用
+
+1. 打开应用
+2. 选择 API 接入方式（MiMo Plan / API Key）
+3. 输入对应的 Token 或 API Key
+4. 选择模型和音色
+5. 输入文本，点击合成
+
+### 3. 使用标签
+
+在文本中插入标签控制语音风格：
+
+```
+(开心)你好呀，今天天气真好！
+(东北话)哥们儿，整点啥？
+(唱歌)小星星，亮晶晶
+[笑]哈哈哈
+```
+
+## 📋 系统要求
+
+- Android 8.0+ (API 26+)
+- 网络连接（用于调用 MiMo API）
+- 存储权限（用于保存音频文件）
+
+## 🛠️ 技术栈
+
+- [Kotlin](https://kotlinlang.org/) - 开发语言
+- [Jetpack Compose](https://developer.android.com/jetpack/compose) - UI 框架
+- [Material Design 3](https://m3.material.io/) - 设计系统
+- [Navigation Compose](https://developer.android.com/j# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+- 创建应用并获取 Token
+- 格式：`mimo-plan-...`
+
+**方式二：API Key**
+- 访问 [MiMo 开放平台](https://platform.xiaomimimo.com)
+- 注册账号并创建应用
+- 获取 API Key（格式：`sk-...`）
+
+### 2. 配置应用
+
+1. 打开应用
+2. 选择 API 接入方式（MiMo Plan / API Key）
+3. 输入对应的 Token 或 API Key
+4. 选择模型和音色
+5. 输入文本，点击合成
+
+### 3. 使用标签
+
+在文本中插入标签控制语音风格：
+
+```
+(开心)你好呀，今天天气真好！
+(东北话)哥们儿，整点啥？
+(唱歌)小星星，亮晶晶
+[笑]哈哈哈
+```
+
+## 📋 系统要求
+
+- Android 8.0+ (API 26+)
+- 网络连接（用于调用 MiMo API）
+- 存储权限（用于保存音频文件）
+
+## 🛠️ 技术栈
+
+- [Kotlin](https://kotlinlang.org/) - 开发语言
+- [Jetpack Compose](https://developer.android.com/jetpack/compose) - UI 框架
+- [Material Design 3](https://m3.material.io/) - 设计系统
+- [Navigation Compose](https://developer.android.com/jetpack/compose/navigation) - 导航
+- [Koin](https://insert-k# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+- 创建应用并获取 Token
+- 格式：`mimo-plan-...`
+
+**方式二：API Key**
+- 访问 [MiMo 开放平台](https://platform.xiaomimimo.com)
+- 注册账号并创建应用
+- 获取 API Key（格式：`sk-...`）
+
+### 2. 配置应用
+
+1. 打开应用
+2. 选择 API 接入方式（MiMo Plan / API Key）
+3. 输入对应的 Token 或 API Key
+4. 选择模型和音色
+5. 输入文本，点击合成
+
+### 3. 使用标签
+
+在文本中插入标签控制语音风格：
+
+```
+(开心)你好呀，今天天气真好！
+(东北话)哥们儿，整点啥？
+(唱歌)小星星，亮晶晶
+[笑]哈哈哈
+```
+
+## 📋 系统要求
+
+- Android 8.0+ (API 26+)
+- 网络连接（用于调用 MiMo API）
+- 存储权限（用于保存音频文件）
+
+## 🛠️ 技术栈
+
+- [Kotlin](https://kotlinlang.org/) - 开发语言
+- [Jetpack Compose](https://developer.android.com/jetpack/compose) - UI 框架
+- [Material Design 3](https://m3.material.io/) - 设计系统
+- [Navigation Compose](https://developer.android.com/jetpack/compose/navigation) - 导航
+- [Koin](https://insert-koin.io/) - 依赖注入
+- [Ktor](https://ktor.io/) - HTTP 客户端
+- [DataStore](https://# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+- 创建应用并获取 Token
+- 格式：`mimo-plan-...`
+
+**方式二：API Key**
+- 访问 [MiMo 开放平台](https://platform.xiaomimimo.com)
+- 注册账号并创建应用
+- 获取 API Key（格式：`sk-...`）
+
+### 2. 配置应用
+
+1. 打开应用
+2. 选择 API 接入方式（MiMo Plan / API Key）
+3. 输入对应的 Token 或 API Key
+4. 选择模型和音色
+5. 输入文本，点击合成
+
+### 3. 使用标签
+
+在文本中插入标签控制语音风格：
+
+```
+(开心)你好呀，今天天气真好！
+(东北话)哥们儿，整点啥？
+(唱歌)小星星，亮晶晶
+[笑]哈哈哈
+```
+
+## 📋 系统要求
+
+- Android 8.0+ (API 26+)
+- 网络连接（用于调用 MiMo API）
+- 存储权限（用于保存音频文件）
+
+## 🛠️ 技术栈
+
+- [Kotlin](https://kotlinlang.org/) - 开发语言
+- [Jetpack Compose](https://developer.android.com/jetpack/compose) - UI 框架
+- [Material Design 3](https://m3.material.io/) - 设计系统
+- [Navigation Compose](https://developer.android.com/jetpack/compose/navigation) - 导航
+- [Koin](https://insert-koin.io/) - 依赖注入
+- [Ktor](https://ktor.io/) - HTTP 客户端
+- [DataStore](https://developer.android.com/topic/libraries/architecture/datastore) - 数据存储
+
+## 🔧# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+- 创建应用并获取 Token
+- 格式：`mimo-plan-...`
+
+**方式二：API Key**
+- 访问 [MiMo 开放平台](https://platform.xiaomimimo.com)
+- 注册账号并创建应用
+- 获取 API Key（格式：`sk-...`）
+
+### 2. 配置应用
+
+1. 打开应用
+2. 选择 API 接入方式（MiMo Plan / API Key）
+3. 输入对应的 Token 或 API Key
+4. 选择模型和音色
+5. 输入文本，点击合成
+
+### 3. 使用标签
+
+在文本中插入标签控制语音风格：
+
+```
+(开心)你好呀，今天天气真好！
+(东北话)哥们儿，整点啥？
+(唱歌)小星星，亮晶晶
+[笑]哈哈哈
+```
+
+## 📋 系统要求
+
+- Android 8.0+ (API 26+)
+- 网络连接（用于调用 MiMo API）
+- 存储权限（用于保存音频文件）
+
+## 🛠️ 技术栈
+
+- [Kotlin](https://kotlinlang.org/) - 开发语言
+- [Jetpack Compose](https://developer.android.com/jetpack/compose) - UI 框架
+- [Material Design 3](https://m3.material.io/) - 设计系统
+- [Navigation Compose](https://developer.android.com/jetpack/compose/navigation) - 导航
+- [Koin](https://insert-koin.io/) - 依赖注入
+- [Ktor](https://ktor.io/) - HTTP 客户端
+- [DataStore](https://developer.android.com/topic/libraries/architecture/datastore) - 数据存储
+
+## 🔧 自行编译
+
+### 环境要求
+
+# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+- 创建应用并获取 Token
+- 格式：`mimo-plan-...`
+
+**方式二：API Key**
+- 访问 [MiMo 开放平台](https://platform.xiaomimimo.com)
+- 注册账号并创建应用
+- 获取 API Key（格式：`sk-...`）
+
+### 2. 配置应用
+
+1. 打开应用
+2. 选择 API 接入方式（MiMo Plan / API Key）
+3. 输入对应的 Token 或 API Key
+4. 选择模型和音色
+5. 输入文本，点击合成
+
+### 3. 使用标签
+
+在文本中插入标签控制语音风格：
+
+```
+(开心)你好呀，今天天气真好！
+(东北话)哥们儿，整点啥？
+(唱歌)小星星，亮晶晶
+[笑]哈哈哈
+```
+
+## 📋 系统要求
+
+- Android 8.0+ (API 26+)
+- 网络连接（用于调用 MiMo API）
+- 存储权限（用于保存音频文件）
+
+## 🛠️ 技术栈
+
+- [Kotlin](https://kotlinlang.org/) - 开发语言
+- [Jetpack Compose](https://developer.android.com/jetpack/compose) - UI 框架
+- [Material Design 3](https://m3.material.io/) - 设计系统
+- [Navigation Compose](https://developer.android.com/jetpack/compose/navigation) - 导航
+- [Koin](https://insert-koin.io/) - 依赖注入
+- [Ktor](https://ktor.io/) - HTTP 客户端
+- [DataStore](https://developer.android.com/topic/libraries/architecture/datastore) - 数据存储
+
+## 🔧 自行编译
+
+### 环境要求
+
+- Android Studio Ladybug (2024.2# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+- 创建应用并获取 Token
+- 格式：`mimo-plan-...`
+
+**方式二：API Key**
+- 访问 [MiMo 开放平台](https://platform.xiaomimimo.com)
+- 注册账号并创建应用
+- 获取 API Key（格式：`sk-...`）
+
+### 2. 配置应用
+
+1. 打开应用
+2. 选择 API 接入方式（MiMo Plan / API Key）
+3. 输入对应的 Token 或 API Key
+4. 选择模型和音色
+5. 输入文本，点击合成
+
+### 3. 使用标签
+
+在文本中插入标签控制语音风格：
+
+```
+(开心)你好呀，今天天气真好！
+(东北话)哥们儿，整点啥？
+(唱歌)小星星，亮晶晶
+[笑]哈哈哈
+```
+
+## 📋 系统要求
+
+- Android 8.0+ (API 26+)
+- 网络连接（用于调用 MiMo API）
+- 存储权限（用于保存音频文件）
+
+## 🛠️ 技术栈
+
+- [Kotlin](https://kotlinlang.org/) - 开发语言
+- [Jetpack Compose](https://developer.android.com/jetpack/compose) - UI 框架
+- [Material Design 3](https://m3.material.io/) - 设计系统
+- [Navigation Compose](https://developer.android.com/jetpack/compose/navigation) - 导航
+- [Koin](https://insert-koin.io/) - 依赖注入
+- [Ktor](https://ktor.io/) - HTTP 客户端
+- [DataStore](https://developer.android.com/topic/libraries/architecture/datastore) - 数据存储
+
+## 🔧 自行编译
+
+### 环境要求
+
+- Android Studio Ladybug (2024.2.1) 或更新版本
+- JDK 17 或更高版本
+- Android SDK 35
+
+### 编译步骤
+
+# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+- 创建应用并获取 Token
+- 格式：`mimo-plan-...`
+
+**方式二：API Key**
+- 访问 [MiMo 开放平台](https://platform.xiaomimimo.com)
+- 注册账号并创建应用
+- 获取 API Key（格式：`sk-...`）
+
+### 2. 配置应用
+
+1. 打开应用
+2. 选择 API 接入方式（MiMo Plan / API Key）
+3. 输入对应的 Token 或 API Key
+4. 选择模型和音色
+5. 输入文本，点击合成
+
+### 3. 使用标签
+
+在文本中插入标签控制语音风格：
+
+```
+(开心)你好呀，今天天气真好！
+(东北话)哥们儿，整点啥？
+(唱歌)小星星，亮晶晶
+[笑]哈哈哈
+```
+
+## 📋 系统要求
+
+- Android 8.0+ (API 26+)
+- 网络连接（用于调用 MiMo API）
+- 存储权限（用于保存音频文件）
+
+## 🛠️ 技术栈
+
+- [Kotlin](https://kotlinlang.org/) - 开发语言
+- [Jetpack Compose](https://developer.android.com/jetpack/compose) - UI 框架
+- [Material Design 3](https://m3.material.io/) - 设计系统
+- [Navigation Compose](https://developer.android.com/jetpack/compose/navigation) - 导航
+- [Koin](https://insert-koin.io/) - 依赖注入
+- [Ktor](https://ktor.io/) - HTTP 客户端
+- [DataStore](https://developer.android.com/topic/libraries/architecture/datastore) - 数据存储
+
+## 🔧 自行编译
+
+### 环境要求
+
+- Android Studio Ladybug (2024.2.1) 或更新版本
+- JDK 17 或更高版本
+- Android SDK 35
+
+### 编译步骤
+
+```bash
+# 1. 克隆仓库
+git clone https://github.com/xia# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+- 创建应用并获取 Token
+- 格式：`mimo-plan-...`
+
+**方式二：API Key**
+- 访问 [MiMo 开放平台](https://platform.xiaomimimo.com)
+- 注册账号并创建应用
+- 获取 API Key（格式：`sk-...`）
+
+### 2. 配置应用
+
+1. 打开应用
+2. 选择 API 接入方式（MiMo Plan / API Key）
+3. 输入对应的 Token 或 API Key
+4. 选择模型和音色
+5. 输入文本，点击合成
+
+### 3. 使用标签
+
+在文本中插入标签控制语音风格：
+
+```
+(开心)你好呀，今天天气真好！
+(东北话)哥们儿，整点啥？
+(唱歌)小星星，亮晶晶
+[笑]哈哈哈
+```
+
+## 📋 系统要求
+
+- Android 8.0+ (API 26+)
+- 网络连接（用于调用 MiMo API）
+- 存储权限（用于保存音频文件）
+
+## 🛠️ 技术栈
+
+- [Kotlin](https://kotlinlang.org/) - 开发语言
+- [Jetpack Compose](https://developer.android.com/jetpack/compose) - UI 框架
+- [Material Design 3](https://m3.material.io/) - 设计系统
+- [Navigation Compose](https://developer.android.com/jetpack/compose/navigation) - 导航
+- [Koin](https://insert-koin.io/) - 依赖注入
+- [Ktor](https://ktor.io/) - HTTP 客户端
+- [DataStore](https://developer.android.com/topic/libraries/architecture/datastore) - 数据存储
+
+## 🔧 自行编译
+
+### 环境要求
+
+- Android Studio Ladybug (2024.2.1) 或更新版本
+- JDK 17 或更高版本
+- Android SDK 35
+
+### 编译步骤
+
+```bash
+# 1. 克隆仓库
+git clone https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize.git
+cd MiMo-TTS# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+- 创建应用并获取 Token
+- 格式：`mimo-plan-...`
+
+**方式二：API Key**
+- 访问 [MiMo 开放平台](https://platform.xiaomimimo.com)
+- 注册账号并创建应用
+- 获取 API Key（格式：`sk-...`）
+
+### 2. 配置应用
+
+1. 打开应用
+2. 选择 API 接入方式（MiMo Plan / API Key）
+3. 输入对应的 Token 或 API Key
+4. 选择模型和音色
+5. 输入文本，点击合成
+
+### 3. 使用标签
+
+在文本中插入标签控制语音风格：
+
+```
+(开心)你好呀，今天天气真好！
+(东北话)哥们儿，整点啥？
+(唱歌)小星星，亮晶晶
+[笑]哈哈哈
+```
+
+## 📋 系统要求
+
+- Android 8.0+ (API 26+)
+- 网络连接（用于调用 MiMo API）
+- 存储权限（用于保存音频文件）
+
+## 🛠️ 技术栈
+
+- [Kotlin](https://kotlinlang.org/) - 开发语言
+- [Jetpack Compose](https://developer.android.com/jetpack/compose) - UI 框架
+- [Material Design 3](https://m3.material.io/) - 设计系统
+- [Navigation Compose](https://developer.android.com/jetpack/compose/navigation) - 导航
+- [Koin](https://insert-koin.io/) - 依赖注入
+- [Ktor](https://ktor.io/) - HTTP 客户端
+- [DataStore](https://developer.android.com/topic/libraries/architecture/datastore) - 数据存储
+
+## 🔧 自行编译
+
+### 环境要求
+
+- Android Studio Ladybug (2024.2.1) 或更新版本
+- JDK 17 或更高版本
+- Android SDK 35
+
+### 编译步骤
+
+```bash
+# 1. 克隆仓库
+git clone https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize.git
+cd MiMo-TTS-Voice-Synthesize
+
+# 2. 切换到 android 分支
+git checkout android# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+- 创建应用并获取 Token
+- 格式：`mimo-plan-...`
+
+**方式二：API Key**
+- 访问 [MiMo 开放平台](https://platform.xiaomimimo.com)
+- 注册账号并创建应用
+- 获取 API Key（格式：`sk-...`）
+
+### 2. 配置应用
+
+1. 打开应用
+2. 选择 API 接入方式（MiMo Plan / API Key）
+3. 输入对应的 Token 或 API Key
+4. 选择模型和音色
+5. 输入文本，点击合成
+
+### 3. 使用标签
+
+在文本中插入标签控制语音风格：
+
+```
+(开心)你好呀，今天天气真好！
+(东北话)哥们儿，整点啥？
+(唱歌)小星星，亮晶晶
+[笑]哈哈哈
+```
+
+## 📋 系统要求
+
+- Android 8.0+ (API 26+)
+- 网络连接（用于调用 MiMo API）
+- 存储权限（用于保存音频文件）
+
+## 🛠️ 技术栈
+
+- [Kotlin](https://kotlinlang.org/) - 开发语言
+- [Jetpack Compose](https://developer.android.com/jetpack/compose) - UI 框架
+- [Material Design 3](https://m3.material.io/) - 设计系统
+- [Navigation Compose](https://developer.android.com/jetpack/compose/navigation) - 导航
+- [Koin](https://insert-koin.io/) - 依赖注入
+- [Ktor](https://ktor.io/) - HTTP 客户端
+- [DataStore](https://developer.android.com/topic/libraries/architecture/datastore) - 数据存储
+
+## 🔧 自行编译
+
+### 环境要求
+
+- Android Studio Ladybug (2024.2.1) 或更新版本
+- JDK 17 或更高版本
+- Android SDK 35
+
+### 编译步骤
+
+```bash
+# 1. 克隆仓库
+git clone https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize.git
+cd MiMo-TTS-Voice-Synthesize
+
+# 2. 切换到 android 分支
+git checkout android
+
+# 3. 用 Android Studio 打开项目
+# File -> Open -># MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+- 创建应用并获取 Token
+- 格式：`mimo-plan-...`
+
+**方式二：API Key**
+- 访问 [MiMo 开放平台](https://platform.xiaomimimo.com)
+- 注册账号并创建应用
+- 获取 API Key（格式：`sk-...`）
+
+### 2. 配置应用
+
+1. 打开应用
+2. 选择 API 接入方式（MiMo Plan / API Key）
+3. 输入对应的 Token 或 API Key
+4. 选择模型和音色
+5. 输入文本，点击合成
+
+### 3. 使用标签
+
+在文本中插入标签控制语音风格：
+
+```
+(开心)你好呀，今天天气真好！
+(东北话)哥们儿，整点啥？
+(唱歌)小星星，亮晶晶
+[笑]哈哈哈
+```
+
+## 📋 系统要求
+
+- Android 8.0+ (API 26+)
+- 网络连接（用于调用 MiMo API）
+- 存储权限（用于保存音频文件）
+
+## 🛠️ 技术栈
+
+- [Kotlin](https://kotlinlang.org/) - 开发语言
+- [Jetpack Compose](https://developer.android.com/jetpack/compose) - UI 框架
+- [Material Design 3](https://m3.material.io/) - 设计系统
+- [Navigation Compose](https://developer.android.com/jetpack/compose/navigation) - 导航
+- [Koin](https://insert-koin.io/) - 依赖注入
+- [Ktor](https://ktor.io/) - HTTP 客户端
+- [DataStore](https://developer.android.com/topic/libraries/architecture/datastore) - 数据存储
+
+## 🔧 自行编译
+
+### 环境要求
+
+- Android Studio Ladybug (2024.2.1) 或更新版本
+- JDK 17 或更高版本
+- Android SDK 35
+
+### 编译步骤
+
+```bash
+# 1. 克隆仓库
+git clone https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize.git
+cd MiMo-TTS-Voice-Synthesize
+
+# 2. 切换到 android 分支
+git checkout android
+
+# 3. 用 Android Studio 打开项目
+# File -> Open -> 选择项目文件夹
+
+# 4. 等待 Gradle 同步完成
+
+# 5# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+- 创建应用并获取 Token
+- 格式：`mimo-plan-...`
+
+**方式二：API Key**
+- 访问 [MiMo 开放平台](https://platform.xiaomimimo.com)
+- 注册账号并创建应用
+- 获取 API Key（格式：`sk-...`）
+
+### 2. 配置应用
+
+1. 打开应用
+2. 选择 API 接入方式（MiMo Plan / API Key）
+3. 输入对应的 Token 或 API Key
+4. 选择模型和音色
+5. 输入文本，点击合成
+
+### 3. 使用标签
+
+在文本中插入标签控制语音风格：
+
+```
+(开心)你好呀，今天天气真好！
+(东北话)哥们儿，整点啥？
+(唱歌)小星星，亮晶晶
+[笑]哈哈哈
+```
+
+## 📋 系统要求
+
+- Android 8.0+ (API 26+)
+- 网络连接（用于调用 MiMo API）
+- 存储权限（用于保存音频文件）
+
+## 🛠️ 技术栈
+
+- [Kotlin](https://kotlinlang.org/) - 开发语言
+- [Jetpack Compose](https://developer.android.com/jetpack/compose) - UI 框架
+- [Material Design 3](https://m3.material.io/) - 设计系统
+- [Navigation Compose](https://developer.android.com/jetpack/compose/navigation) - 导航
+- [Koin](https://insert-koin.io/) - 依赖注入
+- [Ktor](https://ktor.io/) - HTTP 客户端
+- [DataStore](https://developer.android.com/topic/libraries/architecture/datastore) - 数据存储
+
+## 🔧 自行编译
+
+### 环境要求
+
+- Android Studio Ladybug (2024.2.1) 或更新版本
+- JDK 17 或更高版本
+- Android SDK 35
+
+### 编译步骤
+
+```bash
+# 1. 克隆仓库
+git clone https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize.git
+cd MiMo-TTS-Voice-Synthesize
+
+# 2. 切换到 android 分支
+git checkout android
+
+# 3. 用 Android Studio 打开项目
+# File -> Open -> 选择项目文件夹
+
+# 4. 等待 Gradle 同步完成
+
+# 5. 连接手机或启动模拟器
+
+# 6. 点击 Run 按钮 (# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+- 创建应用并获取 Token
+- 格式：`mimo-plan-...`
+
+**方式二：API Key**
+- 访问 [MiMo 开放平台](https://platform.xiaomimimo.com)
+- 注册账号并创建应用
+- 获取 API Key（格式：`sk-...`）
+
+### 2. 配置应用
+
+1. 打开应用
+2. 选择 API 接入方式（MiMo Plan / API Key）
+3. 输入对应的 Token 或 API Key
+4. 选择模型和音色
+5. 输入文本，点击合成
+
+### 3. 使用标签
+
+在文本中插入标签控制语音风格：
+
+```
+(开心)你好呀，今天天气真好！
+(东北话)哥们儿，整点啥？
+(唱歌)小星星，亮晶晶
+[笑]哈哈哈
+```
+
+## 📋 系统要求
+
+- Android 8.0+ (API 26+)
+- 网络连接（用于调用 MiMo API）
+- 存储权限（用于保存音频文件）
+
+## 🛠️ 技术栈
+
+- [Kotlin](https://kotlinlang.org/) - 开发语言
+- [Jetpack Compose](https://developer.android.com/jetpack/compose) - UI 框架
+- [Material Design 3](https://m3.material.io/) - 设计系统
+- [Navigation Compose](https://developer.android.com/jetpack/compose/navigation) - 导航
+- [Koin](https://insert-koin.io/) - 依赖注入
+- [Ktor](https://ktor.io/) - HTTP 客户端
+- [DataStore](https://developer.android.com/topic/libraries/architecture/datastore) - 数据存储
+
+## 🔧 自行编译
+
+### 环境要求
+
+- Android Studio Ladybug (2024.2.1) 或更新版本
+- JDK 17 或更高版本
+- Android SDK 35
+
+### 编译步骤
+
+```bash
+# 1. 克隆仓库
+git clone https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize.git
+cd MiMo-TTS-Voice-Synthesize
+
+# 2. 切换到 android 分支
+git checkout android
+
+# 3. 用 Android Studio 打开项目
+# File -> Open -> 选择项目文件夹
+
+# 4. 等待 Gradle 同步完成
+
+# 5. 连接手机或启动模拟器
+
+# 6. 点击 Run 按钮 (▶️) 编译并安装
+```
+
+### 生成 APK
+
+在 Android# MiMo TTS Android
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org/)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-2024.12.01-brightgreen.svg)](https://developer.android.com/jetpack/compose)
+
+> 基于小米 MiMo-V2.5-TTS 的 Android 语音合成应用，支持预置音色、音色设计和声音克隆。
+
+## 📱 下载安装
+
+### 方式一：GitHub Actions 自动构建（推荐）
+
+1. 访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面
+2. 选择最新的成功构建
+3. 下载 `MiMoTTS-Android-Debug` 工件
+4. 解压并安装 APK
+
+### 方式二：Release 页面下载
+
+1. 访问 [Releases](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/releases) 页面
+2. 找到标记为 `android-v*` 的版本
+3. 下载 APK 文件安装
+
+## ✨ 功能特性
+
+- 🎙️ **预置音色** - 8种精品内置音色（冰糖、茉莉、苏打等）
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 支持情感、方言、风格、音效标签
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **本地存储** - 合成的音频自动保存到本地
+- 🎨 **Material You** - 支持动态主题和深色模式
+- 📱 **自适应布局** - 完美适配手机和平板
+
+## 🚀 快速开始
+
+### 1. 获取 API 密钥
+
+**方式一：MiMo Plan Token**
+- 访问 [MiMo Plan 控制台](https://plan.xiaomimimo.com)
+- 创建应用并获取 Token
+- 格式：`mimo-plan-...`
+
+**方式二：API Key**
+- 访问 [MiMo 开放平台](https://platform.xiaomimimo.com)
+- 注册账号并创建应用
+- 获取 API Key（格式：`sk-...`）
+
+### 2. 配置应用
+
+1. 打开应用
+2. 选择 API 接入方式（MiMo Plan / API Key）
+3. 输入对应的 Token 或 API Key
+4. 选择模型和音色
+5. 输入文本，点击合成
+
+### 3. 使用标签
+
+在文本中插入标签控制语音风格：
+
+```
+(开心)你好呀，今天天气真好！
+(东北话)哥们儿，整点啥？
+(唱歌)小星星，亮晶晶
+[笑]哈哈哈
+```
+
+## 📋 系统要求
+
+- Android 8.0+ (API 26+)
+- 网络连接（用于调用 MiMo API）
+- 存储权限（用于保存音频文件）
+
+## 🛠️ 技术栈
+
+- [Kotlin](https://kotlinlang.org/) - 开发语言
+- [Jetpack Compose](https://developer.android.com/jetpack/compose) - UI 框架
+- [Material Design 3](https://m3.material.io/) - 设计系统
+- [Navigation Compose](https://developer.android.com/jetpack/compose/navigation) - 导航
+- [Koin](https://insert-koin.io/) - 依赖注入
+- [Ktor](https://ktor.io/) - HTTP 客户端
+- [DataStore](https://developer.android.com/topic/libraries/architecture/datastore) - 数据存储
+
+## 🔧 自行编译
+
+### 环境要求
+
+- Android Studio Ladybug (2024.2.1) 或更新版本
+- JDK 17 或更高版本
+- Android SDK 35
+
+### 编译步骤
+
+```bash
+# 1. 克隆仓库
+git clone https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize.git
+cd MiMo-TTS-Voice-Synthesize
+
+# 2. 切换到 android 分支
+git checkout android
+
+# 3. 用 Android Studio 打开项目
+# File -> Open -> 选择项目文件夹
+
+# 4. 等待 Gradle 同步完成
+
+# 5. 连接手机或启动模拟器
+
+# 6. 点击 Run 按钮 (▶️) 编译并安装
+```
+
+### 生成 APK
+
+在 Android Studio 中：
+- **Build → Build Bundle(s) / APK(s) → Build
