@@ -4,7 +4,7 @@ import android.net.Uri
 import androidx.compose.foundation.text.input.TextFieldState
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mimotts.android.data.api.ApiMode
+import com.mimotts.android.data.model.ApiMode
 import com.mimotts.android.data.api.MiMoApiService
 import com.mimotts.android.data.datastore.SettingsDataStore
 import com.mimotts.android.data.model.AudioFormat

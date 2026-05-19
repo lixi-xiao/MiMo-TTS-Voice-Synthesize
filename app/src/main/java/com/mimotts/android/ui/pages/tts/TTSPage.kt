@@ -14,7 +14,8 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Clear
-import androidx.compose.material.icons.filled.History
+import androidx.compose.material.icons.filled.List
+import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -31,7 +32,7 @@ import com.mimotts.android.data.model.PRESET_VOICES
 import com.mimotts.android.data.model.TAG_GROUPS
 import com.mimotts.android.data.model.TTSModel
 import com.mimotts.android.ui.theme.MiMoOrange
-import org.koin.androidx.compose.koinViewModel
+import org.koin.compose.viewmodel.koinViewModel
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
@@ -88,7 +89,7 @@ fun TTSPage(
                 ),
                 actions = {
                     IconButton(onClick = onNavigateToHistory) {
-                        Icon(Icons.Default.History, contentDescription = "历史")
+                        Icon(Icons.Default.List, contentDescription = "历史")
                     }
                     IconButton(onClick = onNavigateToSettings) {
                         Icon(Icons.Default.Settings, contentDescription = "设置")
@@ -568,10 +569,10 @@ private fun AudioPlayerCard(
                     modifier = Modifier.size(48.dp)
                 ) {
                     Icon(
-                        if (isPlaying) 
-                            Icons.Default.Clear 
-                        else 
-                            Icons.Default.History,
+                        if (isPlaying)
+                            Icons.Default.Clear
+                        else
+                            Icons.Default.PlayArrow,
                         contentDescription = if (isPlaying) "暂停" else "播放"
                     )
                 }

@@ -14,6 +14,7 @@ import io.ktor.http.contentType
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
+import com.mimotts.android.data.model.ApiMode
 
 class MiMoApiService {
     private val client = HttpClient(OkHttp) {
