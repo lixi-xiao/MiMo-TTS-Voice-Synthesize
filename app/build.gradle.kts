@@ -13,8 +13,8 @@ android {
         applicationId = "com.mimotts.android"
         minSdk = 26
         targetSdk = 35
-        versionCode = 7
-        versionName = "0.2.3-beta"
+        versionCode = 8
+        versionName = "0.2.4-beta"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
