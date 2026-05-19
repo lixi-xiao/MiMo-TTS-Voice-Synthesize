@@ -232,4 +232,44 @@ class TTSViewModel(
     fun dismissError() {
         _error.value = null
     }
+
+    fun downloadAudio(context: Context, uri: Uri) {
+        viewModelScope.launch {
+            try {
+                // 获取音频数据
+                val audioData = _generatedAudio.value
+                if (audioData == null) {
+                    _error.value = "音频数据不可用"
+                    return@launch
+                }
+
+                // 保存到 Downloads 目录
+                val downloadsDir = android.os.Environment.getExternalStoragePublicDirectory(
+                    android.os.Environment.DIRECTORY_DOWNLOADS
+                )
+                val currentSettings = _settings.value
+                val timestamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
+                val prefix = when (currentSettings.selectedModel) {
+                    TTSModel.VOICE_DESIGN -> "voicedesign"
+                    TTSModel.VOICE_CLONE -> "voiceclone"
+                    else -> currentSettings.selectedVoice
+                }
+                val filename = "mimo_tts_${prefix}_$timestamp.${currentSettings.audioFormat.name.lowercase()}"
+                val file = File(downloadsDir, filename)
+                file.writeBytes(audioData)
+
+                // 通知系统扫描新文件
+                android.media.MediaScannerConnection.scanFile(
+                    context,
+                    arrayOf(file.absolutePath),
+                    arrayOf("audio/${currentSettings.audioFormat.name.lowercase()}"),
+                    null
+                )
+
+                _error.value = "已保存到下载目录: $filename"
+            } catch (e: Exception) {
+                _error.value = "下载失败: ${e.message}"
+            }
+        }
+    }
 }

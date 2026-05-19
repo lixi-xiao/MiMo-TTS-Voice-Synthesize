@@ -185,6 +185,11 @@ fun TTSPage(
                                 isPlaying = true
                             }
                         }
+                    },
+                    onDownload = {
+                        audioUriState?.let { uri ->
+                            viewModel.downloadAudio(context, uri)
+                        }
                     }
                 )
             }
@@ -359,7 +364,8 @@ private fun VoiceDesignSection(
         placeholder = { Text("例如：温柔的女声，像电台主持人一样") },
         modifier = Modifier.fillMaxWidth(),
         minLines = 2,
-        maxLines = 4
+        maxLines = 4,
+        singleLine = false
     )
     Text(
         "描述越具体，生成的音色越贴近预期",
@@ -550,7 +556,8 @@ private fun GenerateButton(
 private fun AudioPlayerCard(
     audioUri: Uri?,
     isPlaying: Boolean,
-    onPlayPause: () -> Unit
+    onPlayPause: () -> Unit,
+    onDownload: () -> Unit = {}
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
@@ -581,7 +588,7 @@ private fun AudioPlayerCard(
                         contentDescription = if (isPlaying) "暂停" else "播放"
                     )
                 }
-                
+
                 Column {
                     Text(
                         "合成完成",
@@ -595,6 +602,18 @@ private fun AudioPlayerCard(
                         overflow = TextOverflow.Ellipsis
                     )
                 }
+            }
+
+            // 下载按钮
+            IconButton(
+                onClick = onDownload,
+                modifier = Modifier.size(48.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.PlayArrow,
+                    contentDescription = "下载音频",
+                    modifier = Modifier.size(24.dp)
+                )
             }
         }
     }
