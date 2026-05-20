@@ -240,16 +240,25 @@ class TTSViewModel(
                             context.contentResolver.openInputStream(uri)?.use { inputStream ->
                                 val bytes = inputStream.readBytes()
                                 val base64 = android.util.Base64.encodeToString(bytes, android.util.Base64.DEFAULT)
-                                // 根据实际文件MIME类型构建Data URI
-                                val mimeType = context.contentResolver.getType(uri) ?: "audio/wav"
+                                // 根据实际文件MIME类型构建Data URI，确保格式正确
+                                var mimeType = context.contentResolver.getType(uri)
+                                // 修正 MIME 类型，确保 API 兼容
+                                when {
+                                    mimeType == null -> mimeType = "audio/wav"
+                                    mimeType.contains("mp3") || mimeType.contains("mpeg") -> mimeType = "audio/mpeg"
+                                    mimeType.contains("wav") -> mimeType = "audio/wav"
+                                }
+                                addLog("INFO", "音色克隆: mimeType=$mimeType, size=${bytes.size} bytes")
                                 "data:$mimeType;base64,$base64"
                             }
                         } catch (e: Exception) {
+                            addLog("ERROR", "读取音频文件失败: ${e.message}")
                             _error.value = "读取音频文件失败: ${e.message}"
                             _isGenerating.value = false
                             return@launch
                         }
                     } ?: run {
+                        addLog("ERROR", "未选择音频文件")
                         _error.value = "请先选择要克隆的音频文件"
                         _isGenerating.value = false
                         return@launch
