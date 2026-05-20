@@ -281,13 +281,13 @@ class TTSViewModel(
                     _generatedAudio.value = audioData
 
                     // Save to file
-                    val timestamp = SimpleDateFormat("yyyy-M-d HH:mm", Locale.getDefault()).format(Date())
+                    val timestamp = SimpleDateFormat("yyyy-M-d_HH-mm", Locale.getDefault()).format(Date())
                     val modeName = when (currentSettings.selectedModel) {
-                        TTSModel.VOICE_DESIGN -> "音频设计"
-                        TTSModel.VOICE_CLONE -> "音频克隆"
-                        else -> "预置音色"
+                        TTSModel.VOICE_DESIGN -> "voicedesign"
+                        TTSModel.VOICE_CLONE -> "voiceclone"
+                        else -> currentSettings.selectedVoice
                     }
-                    val filename = "$timestamp $modeName.${currentSettings.audioFormat.name.lowercase()}"
+                    val filename = "${timestamp}_${modeName}.${currentSettings.audioFormat.name.lowercase()}"
                     val file = File(context.cacheDir, filename)
                     file.writeBytes(audioData)
                     _audioUri.value = Uri.fromFile(file)
@@ -350,10 +350,6 @@ class TTSViewModel(
                     return@launch
                 }
 
-                // 保存到 Downloads 目录
-                val downloadsDir = android.os.Environment.getExternalStoragePublicDirectory(
-                    android.os.Environment.DIRECTORY_DOWNLOADS
-                )
                 val currentSettings = _settings.value
 
                 // 使用自定义文件名或默认文件名
@@ -362,28 +358,35 @@ class TTSViewModel(
                     val ext = currentSettings.audioFormat.name.lowercase()
                     if (customFilename.endsWith(".$ext")) customFilename else "$customFilename.$ext"
                 } else {
-                    val timestamp = SimpleDateFormat("yyyy-M-d HH:mm", Locale.getDefault()).format(Date())
+                    val timestamp = SimpleDateFormat("yyyy-M-d_HH-mm", Locale.getDefault()).format(Date())
                     val modeName = when (currentSettings.selectedModel) {
-                        TTSModel.VOICE_DESIGN -> "音频设计"
-                        TTSModel.VOICE_CLONE -> "音频克隆"
-                        else -> "预置音色"
+                        TTSModel.VOICE_DESIGN -> "voicedesign"
+                        TTSModel.VOICE_CLONE -> "voiceclone"
+                        else -> currentSettings.selectedVoice
                     }
-                    "$timestamp $modeName.${currentSettings.audioFormat.name.lowercase()}"
+                    "${timestamp}_${modeName}.${currentSettings.audioFormat.name.lowercase()}"
                 }
 
-                val file = File(downloadsDir, filename)
-                file.writeBytes(audioData)
+                // 使用 MediaStore API 保存到 Downloads
+                val contentValues = android.content.ContentValues().apply {
+                    put(android.provider.MediaStore.Downloads.DISPLAY_NAME, filename)
+                    put(android.provider.MediaStore.Downloads.MIME_TYPE, "audio/${currentSettings.audioFormat.name.lowercase()}")
+                    put(android.provider.MediaStore.Downloads.RELATIVE_PATH, android.os.Environment.DIRECTORY_DOWNLOADS)
+                }
 
-                // 通知系统扫描新文件
-                android.media.MediaScannerConnection.scanFile(
-                    context,
-                    arrayOf(file.absolutePath),
-                    arrayOf("audio/${currentSettings.audioFormat.name.lowercase()}"),
-                    null
-                )
+                val resolver = context.contentResolver
+                val uri = resolver.insert(android.provider.MediaStore.Downloads.EXTERNAL_CONTENT_URI, contentValues)
 
-                _error.value = "已保存到下载目录: $filename"
-                addLog("SUCCESS", "音频已保存: $filename")
+                if (uri != null) {
+                    resolver.openOutputStream(uri)?.use { outputStream ->
+                        outputStream.write(audioData)
+                    }
+                    _error.value = "已保存到下载目录: $filename"
+                    addLog("SUCCESS", "音频已保存: $filename")
+                } else {
+                    _error.value = "保存失败: 无法创建文件"
+                    addLog("ERROR", "保存失败: MediaStore 返回 null")
+                }
             } catch (e: Exception) {
                 _error.value = "下载失败: ${e.message}"
                 addLog("ERROR", "保存失败: ${e.message}")
