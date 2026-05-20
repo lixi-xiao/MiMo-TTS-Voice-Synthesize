@@ -49,6 +49,9 @@ fun TTSPage(
     val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }
 
+    var showDownloadDialog by remember { mutableStateOf(false) }
+    var customFilename by remember { mutableStateOf("") }
+
     val settings by viewModel.settings.collectAsStateWithLifecycle()
     val isGenerating by viewModel.isGenerating.collectAsStateWithLifecycle()
     val audioUriState by viewModel.audioUri.collectAsStateWithLifecycle()
@@ -244,12 +247,65 @@ fun TTSPage(
                         }
                     },
                     onDownload = {
-                        audioUriState?.let { uri ->
-                            viewModel.downloadAudio(context, uri)
-                        }
+                        showDownloadDialog = true
                     }
                 )
             }
+        }
+
+        // 下载对话框
+        if (showDownloadDialog) {
+            val currentSettings = settings
+            val defaultName = remember {
+                val timestamp = java.text.SimpleDateFormat("yyyy-M-d HH:mm", java.util.Locale.getDefault()).format(java.util.Date())
+                val modeName = when (currentSettings.selectedModel) {
+                    TTSModel.VOICE_DESIGN -> "音频设计"
+                    TTSModel.VOICE_CLONE -> "音频克隆"
+                    else -> "预置音色"
+                }
+                "$timestamp $modeName"
+            }
+
+            AlertDialog(
+                onDismissRequest = { showDownloadDialog = false },
+                title = { Text("保存音频") },
+                text = {
+                    Column(
+                        verticalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        Text("文件名（不含扩展名）：")
+                        OutlinedTextField(
+                            value = customFilename,
+                            onValueChange = { customFilename = it },
+                            placeholder = { Text(defaultName) },
+                            singleLine = true,
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                        Text(
+                            "留空将使用默认文件名",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                },
+                confirmButton = {
+                    TextButton(
+                        onClick = {
+                            val finalName = customFilename.takeIf { it.isNotBlank() } ?: defaultName
+                            viewModel.downloadAudio(context, finalName)
+                            showDownloadDialog = false
+                            customFilename = ""
+                        }
+                    ) {
+                        Text("保存")
+                    }
+                },
+                dismissButton = {
+                    TextButton(onClick = { showDownloadDialog = false }) {
+                        Text("取消")
+                    }
+                }
+            )
         }
     }
 }

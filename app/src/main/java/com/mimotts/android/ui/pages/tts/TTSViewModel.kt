@@ -281,13 +281,13 @@ class TTSViewModel(
                     _generatedAudio.value = audioData
 
                     // Save to file
-                    val timestamp = SimpleDateFormat("yyyy-MM-dd_HH-mm-ss", Locale.getDefault()).format(Date())
-                    val prefix = when (currentSettings.selectedModel) {
-                        TTSModel.VOICE_DESIGN -> "voicedesign"
-                        TTSModel.VOICE_CLONE -> "voiceclone"
-                        else -> currentSettings.selectedVoice
+                    val timestamp = SimpleDateFormat("yyyy-M-d HH:mm", Locale.getDefault()).format(Date())
+                    val modeName = when (currentSettings.selectedModel) {
+                        TTSModel.VOICE_DESIGN -> "音频设计"
+                        TTSModel.VOICE_CLONE -> "音频克隆"
+                        else -> "预置音色"
                     }
-                    val filename = "${timestamp}_${prefix}.${currentSettings.audioFormat.name.lowercase()}"
+                    val filename = "$timestamp $modeName.${currentSettings.audioFormat.name.lowercase()}"
                     val file = File(context.cacheDir, filename)
                     file.writeBytes(audioData)
                     _audioUri.value = Uri.fromFile(file)
@@ -340,7 +340,7 @@ class TTSViewModel(
         }
     }
 
-    fun downloadAudio(context: Context, uri: Uri) {
+    fun downloadAudio(context: Context, customFilename: String? = null) {
         viewModelScope.launch {
             try {
                 // 获取音频数据
@@ -355,13 +355,22 @@ class TTSViewModel(
                     android.os.Environment.DIRECTORY_DOWNLOADS
                 )
                 val currentSettings = _settings.value
-                val timestamp = SimpleDateFormat("yyyy-MM-dd_HH-mm-ss", Locale.getDefault()).format(Date())
-                val prefix = when (currentSettings.selectedModel) {
-                    TTSModel.VOICE_DESIGN -> "voicedesign"
-                    TTSModel.VOICE_CLONE -> "voiceclone"
-                    else -> currentSettings.selectedVoice
+
+                // 使用自定义文件名或默认文件名
+                val filename = if (!customFilename.isNullOrBlank()) {
+                    // 确保有正确的扩展名
+                    val ext = currentSettings.audioFormat.name.lowercase()
+                    if (customFilename.endsWith(".$ext")) customFilename else "$customFilename.$ext"
+                } else {
+                    val timestamp = SimpleDateFormat("yyyy-M-d HH:mm", Locale.getDefault()).format(Date())
+                    val modeName = when (currentSettings.selectedModel) {
+                        TTSModel.VOICE_DESIGN -> "音频设计"
+                        TTSModel.VOICE_CLONE -> "音频克隆"
+                        else -> "预置音色"
+                    }
+                    "$timestamp $modeName.${currentSettings.audioFormat.name.lowercase()}"
                 }
-                val filename = "${timestamp}_${prefix}.${currentSettings.audioFormat.name.lowercase()}"
+
                 val file = File(downloadsDir, filename)
                 file.writeBytes(audioData)
 
