@@ -259,30 +259,42 @@ class TTSViewModel(
                                     return@launch
                                 }
 
+                                // 验证音频文件是否有效
+                                val originalMimeType = context.contentResolver.getType(uri)
+                                addLogStatic("INFO", "原始MIME: $originalMimeType, 大小: ${originalBytes.size} bytes")
+
+                                // 尝试解析音频文件，验证是否为有效音频
+                                var isValidAudio = false
+                                var audioDuration = 0L
+                                try {
+                                    val mmr = android.media.MediaMetadataRetriever()
+                                    context.contentResolver.openFileDescriptor(uri, "r")?.use { pfd ->
+                                        mmr.setDataSource(pfd.fileDescriptor)
+                                    }
+                                    val duration = mmr.extractMetadata(android.media.MediaMetadataRetriever.METADATA_KEY_DURATION)
+                                    audioDuration = duration?.toLong() ?: 0L
+                                    mmr.release()
+                                    isValidAudio = true
+                                    addLogStatic("INFO", "音频有效，时长: ${audioDuration}ms")
+                                } catch (e: Exception) {
+                                    addLogStatic("ERROR", "音频文件无效: ${e.message}")
+                                    isValidAudio = false
+                                }
+
+                                if (!isValidAudio) {
+                                    addLogStatic("ERROR", "无法解析音频文件，请确保文件格式正确")
+                                    _error.value = "音频文件格式不支持或已损坏，请尝试其他音频文件（支持 mp3/wav/m4a/ogg/flac）"
+                                    _isGenerating.value = false
+                                    return@launch
+                                }
+
                                 // 检测并转码为 WAV 格式
                                 var finalBytes = originalBytes
                                 var finalMimeType = "audio/wav"
 
-                                val originalMimeType = context.contentResolver.getType(uri)
-                                addLogStatic("INFO", "原始MIME: $originalMimeType")
-
                                 // 如果不是 WAV 格式，尝试转码
                                 if (originalMimeType != null && !originalMimeType.contains("wav")) {
                                     addLogStatic("INFO", "检测到非WAV格式($originalMimeType)，正在转码为WAV...")
-                                    try {
-                                        // 使用 MediaMetadataRetriever 获取时长信息
-                                        val mmr = android.media.MediaMetadataRetriever()
-                                        context.contentResolver.openFileDescriptor(uri, "r")?.use { pfd ->
-                                            mmr.setDataSource(pfd.fileDescriptor)
-                                        }
-                                        val duration = mmr.extractMetadata(android.media.MediaMetadataRetriever.METADATA_KEY_DURATION)
-                                        mmr.release()
-                                        addLogStatic("INFO", "音频时长: ${duration}ms")
-                                    } catch (e: Exception) {
-                                        addLogStatic("DEBUG", "获取音频信息失败: ${e.message}")
-                                    }
-
-                                    // 使用 Android 内置 MediaCodec/MediaExtractor 转码为 WAV
                                     try {
                                         finalBytes = convertToWav(context, uri)
                                         finalMimeType = "audio/wav"
