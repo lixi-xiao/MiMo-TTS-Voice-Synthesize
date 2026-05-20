@@ -272,7 +272,9 @@ class TTSViewModel(
                                     try {
                                         // 使用 MediaMetadataRetriever 获取时长信息
                                         val mmr = android.media.MediaMetadataRetriever()
-                                        mmr.setDataSource(context, uri)
+                                        context.contentResolver.openFileDescriptor(uri, "r")?.use { pfd ->
+                                            mmr.setDataSource(pfd.fileDescriptor)
+                                        }
                                         val duration = mmr.extractMetadata(android.media.MediaMetadataRetriever.METADATA_KEY_DURATION)
                                         mmr.release()
                                         addLogStatic("INFO", "音频时长: ${duration}ms")
@@ -472,7 +474,10 @@ class TTSViewModel(
      */
     private fun convertToWav(context: android.content.Context, uri: android.net.Uri): ByteArray {
         val extractor = android.media.MediaExtractor()
-        extractor.setDataSource(context, uri)
+        // 使用 FileDescriptor 方式，兼容 API 26+
+        context.contentResolver.openFileDescriptor(uri, "r")?.use { pfd ->
+            extractor.setDataSource(pfd.fileDescriptor)
+        } ?: throw Exception("无法打开音频文件")
 
         // 找到音频轨道
         var audioTrackIndex = -1
