@@ -26,7 +26,7 @@ class SettingsDataStore(private val context: Context) {
         .map { preferences ->
             preferences[TTS_SETTINGS_KEY]?.let { json ->
                 try {
-                    Json.decodeFromString<TTSSettings>(json)
+                    Json.decodeFromString<TTSSettings>(json).validated()
                 } catch (e: Exception) {
                     TTSSettings()
                 }

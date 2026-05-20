@@ -15,7 +15,35 @@ data class TTSSettings(
     val styleInstruction: String = "",
     val styleTags: List<String> = emptyList(),
     val historyItems: List<TTSHistoryItem> = emptyList()
-)
+) {
+    // 数据验证和修复，确保设置始终有效
+    fun validated(): TTSSettings {
+        return copy(
+            // 确保音频格式是有效值
+            audioFormat = try {
+                if (AudioFormat.entries.any { it.name == audioFormat.name }) {
+                    audioFormat
+                } else {
+                    AudioFormat.WAV
+                }
+            } catch (e: Exception) {
+                AudioFormat.WAV
+            },
+            // 确保选中的音色在预置音色列表中
+            selectedVoice = if (selectedVoice in PRESET_VOICES) selectedVoice else "冰糖",
+            // 确保模型是有效值
+            selectedModel = try {
+                if (TTSModel.entries.any { it.name == selectedModel.name }) {
+                    selectedModel
+                } else {
+                    TTSModel.PRESET
+                }
+            } catch (e: Exception) {
+                TTSModel.PRESET
+            }
+        )
+    }
+}
 
 @Serializable
 data class ApiConfig(
@@ -40,9 +68,18 @@ enum class TTSModel {
 }
 
 @Serializable
-enum class AudioFormat {
-    WAV,
-    MP3
+enum class AudioFormat(val apiValue: String) {
+    WAV("wav"),
+    MP3("mp3"),
+    FLAC("flac"),
+    M4A("m4a"),
+    OGG("ogg");
+    
+    companion object {
+        fun fromString(value: String): AudioFormat {
+            return entries.find { it.name.equals(value, ignoreCase = true) } ?: WAV
+        }
+    }
 }
 
 val PRESET_VOICES = listOf(
