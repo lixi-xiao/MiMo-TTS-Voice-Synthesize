@@ -13,6 +13,7 @@ data class TTSSettings(
     val voiceDescription: String = "",
     val audioFormat: AudioFormat = AudioFormat.WAV,
     val styleInstruction: String = "",
+    val styleTags: List<String> = emptyList(),
     val historyItems: List<TTSHistoryItem> = emptyList()
 )
 
@@ -51,45 +52,50 @@ val PRESET_VOICES = listOf(
 
 val TAG_GROUPS = listOf(
     TagGroup(
-        name = "情感",
-        tags = mapOf(
-            "开心" to "(开心)",
-            "悲伤" to "(悲伤)",
-            "温柔" to "(温柔)",
-            "慵懒" to "(慵懒)",
-            "愤怒" to "(愤怒)",
-            "惊讶" to "(惊讶)"
-        )
+        name = "基础情绪",
+        tags = listOf("开心", "悲伤", "愤怒", "恐惧", "惊讶", "兴奋", "委屈", "平静", "冷漠")
+    ),
+    TagGroup(
+        name = "复合情绪",
+        tags = listOf("怅然", "欣慰", "无奈", "愧疚", "释然", "嫉妒", "厌倦", "忐忑", "动情")
+    ),
+    TagGroup(
+        name = "整体语调",
+        tags = listOf("温柔", "高冷", "活泼", "严肃", "慵懒", "俏皮", "深沉", "干练", "凌厉")
+    ),
+    TagGroup(
+        name = "音色定位",
+        tags = listOf("磁性", "醇厚", "清亮", "空灵", "稚嫩", "苍老", "甜美", "沙哑", "醇雅")
+    ),
+    TagGroup(
+        name = "人设腔调",
+        tags = listOf("夹子音", "御姐音", "正太音", "大叔音", "台湾腔")
     ),
     TagGroup(
         name = "方言",
-        tags = mapOf(
-            "东北话" to "(东北话)",
-            "粤语" to "(粤语)",
-            "四川话" to "(四川话)"
-        )
+        tags = listOf("东北话", "四川话", "河南话", "粤语")
     ),
     TagGroup(
-        name = "风格",
-        tags = mapOf(
-            "唱歌" to "(唱歌)",
-            "耳语" to "(耳语)"
-        )
+        name = "角色扮演",
+        tags = listOf("孙悟空", "林黛玉")
+    ),
+    TagGroup(
+        name = "唱歌",
+        tags = listOf("唱歌")
     ),
     TagGroup(
         name = "音效",
-        tags = mapOf(
-            "笑" to "[笑]",
-            "叹气" to "[叹气]",
-            "吸气" to "[吸气]"
-        )
+        tags = listOf("吸气", "深呼吸", "叹气", "长叹一口气", "喘息", "屏息",
+            "紧张", "害怕", "激动", "疲惫", "委屈", "撒娇", "心虚", "震惊", "不耐烦",
+            "颤抖", "声音颤抖", "变调", "破音", "鼻音", "气声",
+            "笑", "轻笑", "大笑", "冷笑", "抽泣", "呜咽", "哽咽", "嚎啕大哭")
     )
 )
 
 @Serializable
 data class TagGroup(
     val name: String,
-    val tags: Map<String, String>
+    val tags: List<String>
 )
 
 @Serializable

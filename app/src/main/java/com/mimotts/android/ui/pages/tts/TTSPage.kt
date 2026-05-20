@@ -56,8 +56,10 @@ fun TTSPage(
     val isGenerating by viewModel.isGenerating.collectAsStateWithLifecycle()
     val audioUriState by viewModel.audioUri.collectAsStateWithLifecycle()
     val error by viewModel.error.collectAsStateWithLifecycle()
-    val activeTags by viewModel.activeTags.collectAsStateWithLifecycle()
     val voiceCloneUri by viewModel.voiceCloneUri.collectAsStateWithLifecycle()
+
+    // 当前激活的标签从 settings.styleTags 获取
+    val activeTagsSet = remember(settings.styleTags) { settings.styleTags.toSet() }
 
     // 当前激活的 API 配置
     val activeApiConfig = settings.apiConfigs.find { it.id == settings.activeApiId }
@@ -212,8 +214,8 @@ fun TTSPage(
             TextInputSection(
                 text = text,
                 onTextChange = { text = it },
-                activeTags = activeTags,
-                onToggleTag = { name, tagText -> viewModel.toggleTag(name, tagText) },
+                activeTags = activeTagsSet,
+                onToggleTag = { tag -> viewModel.toggleTag(tag) },
                 onClear = { viewModel.clearAll(); text = "" },
                 bringIntoViewRequester = bringIntoViewRequester
             )
@@ -499,7 +501,7 @@ private fun TextInputSection(
     text: String,
     onTextChange: (String) -> Unit,
     activeTags: Set<String>,
-    onToggleTag: (String, String) -> Unit,
+    onToggleTag: (String) -> Unit,
     onClear: () -> Unit,
     bringIntoViewRequester: BringIntoViewRequester
 ) {
@@ -517,12 +519,12 @@ private fun TextInputSection(
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
                     verticalArrangement = Arrangement.spacedBy(4.dp)
                 ) {
-                    group.tags.forEach { (name, tagText) ->
-                        val isActive = activeTags.contains(name)
+                    group.tags.forEach { tag ->
+                        val isActive = activeTags.contains(tag)
                         FilterChip(
                             selected = isActive,
-                            onClick = { onToggleTag(name, tagText) },
-                            label = { Text(name) },
+                            onClick = { onToggleTag(tag) },
+                            label = { Text(tag) },
                             colors = FilterChipDefaults.filterChipColors(
                                 selectedContainerColor = MiMoOrange.copy(alpha = 0.2f),
                                 selectedLabelColor = MiMoOrange

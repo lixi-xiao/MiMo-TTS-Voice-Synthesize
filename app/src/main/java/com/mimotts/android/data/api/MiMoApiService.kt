@@ -32,6 +32,7 @@ class MiMoApiService {
         model: String,
         text: String,
         styleInstruction: String = "",
+        styleTags: List<String> = emptyList(),
         voice: String? = null,
         voiceDescription: String? = null,
         voiceCloneBase64: String? = null,
@@ -42,6 +43,7 @@ class MiMoApiService {
                 model = model,
                 text = text,
                 styleInstruction = styleInstruction,
+                styleTags = styleTags,
                 voiceDescription = voiceDescription
             )
 
@@ -115,11 +117,18 @@ class MiMoApiService {
         model: String,
         text: String,
         styleInstruction: String,
+        styleTags: List<String>,
         voiceDescription: String?
     ): List<Message> {
+        // 构建带标签的合成文本：标签放在文本开头
+        val taggedText = if (styleTags.isNotEmpty()) {
+            "(${styleTags.joinToString(" ")})$text"
+        } else {
+            text
+        }
+
         return when {
             model.contains("voicedesign") -> {
-                // 音色设计：通过 user 消息描述音色，assistant 消息提供文本
                 val voiceDesignPrompt = voiceDescription?.takeIf { it.isNotBlank() }
                     ?: "自然流畅的声音"
                 val finalPrompt = if (styleInstruction.isNotBlank()) {
@@ -128,26 +137,24 @@ class MiMoApiService {
 
                 listOf(
                     Message(role = "user", content = finalPrompt),
-                    Message(role = "assistant", content = text)
+                    Message(role = "assistant", content = taggedText)
                 )
             }
             model.contains("voiceclone") -> {
-                // 音色克隆：user 消息可选，assistant 消息提供合成文本
                 val messages = mutableListOf<Message>()
                 if (styleInstruction.isNotBlank()) {
                     messages.add(Message(role = "user", content = styleInstruction))
                 }
-                messages.add(Message(role = "assistant", content = text))
+                messages.add(Message(role = "assistant", content = taggedText))
                 messages
             }
             else -> {
-                // 预设音色：user 消息可包含风格指令
                 listOf(
                     Message(
                         role = "user",
                         content = styleInstruction.takeIf { it.isNotBlank() } ?: ""
                     ),
-                    Message(role = "assistant", content = text)
+                    Message(role = "assistant", content = taggedText)
                 )
             }
         }

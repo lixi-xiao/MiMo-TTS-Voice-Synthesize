@@ -169,6 +169,17 @@ class SettingsDataStore(private val context: Context) {
         }
     }
 
+    suspend fun updateStyleTags(tags: List<String>) {
+        context.dataStore.edit { preferences ->
+            val current = preferences[TTS_SETTINGS_KEY]?.let {
+                Json.decodeFromString<TTSSettings>(it)
+            } ?: TTSSettings()
+            preferences[TTS_SETTINGS_KEY] = Json.encodeToString(
+                current.copy(styleTags = tags)
+            )
+        }
+    }
+
     suspend fun addHistoryItem(item: TTSHistoryItem) {
         context.dataStore.edit { preferences ->
             val current = preferences[TTS_SETTINGS_KEY]?.let {

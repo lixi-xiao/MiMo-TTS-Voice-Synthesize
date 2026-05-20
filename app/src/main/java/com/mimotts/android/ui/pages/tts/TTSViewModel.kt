@@ -96,22 +96,16 @@ class TTSViewModel(
         }
     }
 
-    fun toggleTag(tagName: String, tagText: String) {
-        val currentTags = _activeTags.value.toMutableSet()
-        val currentText = textState.text.toString()
-
-        if (currentTags.contains(tagName)) {
-            currentTags.remove(tagName)
-            textState.edit {
-                replace(0, length, currentText.replace(tagText, ""))
-            }
+    fun toggleTag(tag: String) {
+        val currentTags = _settings.value.styleTags.toMutableList()
+        if (currentTags.contains(tag)) {
+            currentTags.remove(tag)
         } else {
-            currentTags.add(tagName)
-            textState.edit {
-                replace(0, length, currentText + tagText)
-            }
+            currentTags.add(tag)
         }
-        _activeTags.value = currentTags
+        viewModelScope.launch {
+            settingsDataStore.updateStyleTags(currentTags)
+        }
     }
 
     fun clearAll() {
@@ -271,6 +265,7 @@ class TTSViewModel(
                     model = modelId,
                     text = text,
                     styleInstruction = currentSettings.styleInstruction,
+                    styleTags = currentSettings.styleTags,
                     voice = currentSettings.selectedVoice.takeIf { currentSettings.selectedModel == TTSModel.PRESET },
                     voiceDescription = currentSettings.voiceDescription.takeIf { currentSettings.selectedModel == TTSModel.VOICE_DESIGN },
                     voiceCloneBase64 = voiceCloneBase64,
