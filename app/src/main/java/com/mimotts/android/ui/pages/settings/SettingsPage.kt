@@ -378,7 +378,7 @@ fun SettingsPage(
                             style = MaterialTheme.typography.bodyMedium
                         )
                         Text(
-                            "版本: 0.5.0-beta",
+                            "版本: 0.5.1-beta",
                             style = MaterialTheme.typography.bodyMedium
                         )
                         Text(

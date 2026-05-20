@@ -233,17 +233,42 @@ class TTSViewModel(
                         try {
                             context.contentResolver.openInputStream(uri)?.use { inputStream ->
                                 val bytes = inputStream.readBytes()
+                                
+                                // 检查文件大小（API限制10MB）
+                                if (bytes.size > 10 * 1024 * 1024) {
+                                    addLog("ERROR", "音频文件过大: ${bytes.size} bytes > 10MB")
+                                    _error.value = "音频文件过大，请上传小于10MB的文件"
+                                    _isGenerating.value = false
+                                    return@launch
+                                }
+                                
                                 val base64 = android.util.Base64.encodeToString(bytes, android.util.Base64.NO_WRAP)
+                                
                                 // 根据实际文件MIME类型构建Data URI，确保格式正确
                                 var mimeType = context.contentResolver.getType(uri)
+                                val originalMimeType = mimeType
+                                
                                 // 修正 MIME 类型，确保 API 兼容
                                 when {
                                     mimeType == null -> mimeType = "audio/wav"
                                     mimeType.contains("mp3") || mimeType.contains("mpeg") -> mimeType = "audio/mpeg"
                                     mimeType.contains("wav") -> mimeType = "audio/wav"
+                                    mimeType.contains("ogg") -> mimeType = "audio/ogg"
+                                    mimeType.contains("m4a") -> mimeType = "audio/mp4"
                                 }
-                                addLog("INFO", "音色克隆: mimeType=$mimeType, size=${bytes.size} bytes")
-                                "data:$mimeType;base64,$base64"
+                                
+                                addLog("INFO", "音色克隆: originalMime=$originalMimeType, finalMime=$mimeType, size=${bytes.size} bytes, base64Len=${base64.length}")
+                                
+                                // 验证Data URI格式
+                                val dataUri = "data:$mimeType;base64,$base64"
+                                if (dataUri.length > 10000000) {
+                                    addLog("ERROR", "Data URI 过长: ${dataUri.length}")
+                                    _error.value = "音频文件过大，请上传更小的文件"
+                                    _isGenerating.value = false
+                                    return@launch
+                                }
+                                
+                                dataUri
                             }
                         } catch (e: Exception) {
                             addLog("ERROR", "读取音频文件失败: ${e.message}")
