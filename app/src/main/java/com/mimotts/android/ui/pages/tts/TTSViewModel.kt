@@ -239,7 +239,7 @@ class TTSViewModel(
                         try {
                             context.contentResolver.openInputStream(uri)?.use { inputStream ->
                                 val bytes = inputStream.readBytes()
-                                val base64 = android.util.Base64.encodeToString(bytes, android.util.Base64.DEFAULT)
+                                val base64 = android.util.Base64.encodeToString(bytes, android.util.Base64.NO_WRAP)
                                 // 根据实际文件MIME类型构建Data URI，确保格式正确
                                 var mimeType = context.contentResolver.getType(uri)
                                 // 修正 MIME 类型，确保 API 兼容
