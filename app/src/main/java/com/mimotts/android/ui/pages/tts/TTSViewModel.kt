@@ -281,12 +281,13 @@ class TTSViewModel(
                     _generatedAudio.value = audioData
 
                     // Save to file
-                    val timestamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
+                    val timestamp = SimpleDateFormat("yyyy-MM-dd_HH-mm-ss", Locale.getDefault()).format(Date())
                     val prefix = when (currentSettings.selectedModel) {
                         TTSModel.VOICE_DESIGN -> "voicedesign"
+                        TTSModel.VOICE_CLONE -> "voiceclone"
                         else -> currentSettings.selectedVoice
                     }
-                    val filename = "mimo_tts_${prefix}_$timestamp.${currentSettings.audioFormat.name.lowercase()}"
+                    val filename = "${timestamp}_${prefix}.${currentSettings.audioFormat.name.lowercase()}"
                     val file = File(context.cacheDir, filename)
                     file.writeBytes(audioData)
                     _audioUri.value = Uri.fromFile(file)
@@ -354,13 +355,13 @@ class TTSViewModel(
                     android.os.Environment.DIRECTORY_DOWNLOADS
                 )
                 val currentSettings = _settings.value
-                val timestamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
+                val timestamp = SimpleDateFormat("yyyy-MM-dd_HH-mm-ss", Locale.getDefault()).format(Date())
                 val prefix = when (currentSettings.selectedModel) {
                     TTSModel.VOICE_DESIGN -> "voicedesign"
                     TTSModel.VOICE_CLONE -> "voiceclone"
                     else -> currentSettings.selectedVoice
                 }
-                val filename = "mimo_tts_${prefix}_$timestamp.${currentSettings.audioFormat.name.lowercase()}"
+                val filename = "${timestamp}_${prefix}.${currentSettings.audioFormat.name.lowercase()}"
                 val file = File(downloadsDir, filename)
                 file.writeBytes(audioData)
 

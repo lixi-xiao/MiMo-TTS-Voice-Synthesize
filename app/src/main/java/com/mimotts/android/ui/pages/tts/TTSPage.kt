@@ -390,31 +390,6 @@ private fun VoiceCloneSection(
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
 
-            // 已知问题提示
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.3f)
-                )
-            ) {
-                Column(
-                    modifier = Modifier.padding(12.dp),
-                    verticalArrangement = Arrangement.spacedBy(4.dp)
-                ) {
-                    Text(
-                        "⚠️ 已知问题",
-                        style = MaterialTheme.typography.labelMedium,
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.error
-                    )
-                    Text(
-                        "当前音色克隆功能可能无法正常使用，API 可能返回错误。建议暂时使用预置音色或音色设计功能。我们正在排查修复中。",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onErrorContainer
-                    )
-                }
-            }
-
             if (cloneUri != null) {
                 Text(
                     "已选择: ${cloneUri.lastPathSegment}",
