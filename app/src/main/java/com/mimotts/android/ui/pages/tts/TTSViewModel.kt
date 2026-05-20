@@ -30,7 +30,7 @@ class TTSViewModel(
 
     data class LogEntry(
         val timestamp: Long = System.currentTimeMillis(),
-        val level: String, // "INFO", "ERROR", "SUCCESS"
+        val level: String, // "INFO", "ERROR", "SUCCESS", "DEBUG"
         val message: String
     )
 
@@ -39,11 +39,14 @@ class TTSViewModel(
 
     private fun addLog(level: String, message: String) {
         val entry = LogEntry(timestamp = System.currentTimeMillis(), level = level, message = message)
-        _logEntries.value = (_logEntries.value + entry).takeLast(200) // 最多保留200条
+        _logEntries.value = (_logEntries.value + entry).takeLast(500) // 最多保留500条
+        // 同时打印到 Logcat，方便调试
+        android.util.Log.d("MiMoTTS", "[$level] $message")
     }
 
     fun clearLogs() {
         _logEntries.value = emptyList()
+        addLog("INFO", "日志已清空")
     }
 
     val textState = TextFieldState()
@@ -224,7 +227,18 @@ class TTSViewModel(
                     TTSModel.VOICE_CLONE -> "mimo-v2.5-tts-voiceclone"
                 }
 
-                addLog("INFO", "开始合成: model=$modelId, text=${text.take(30)}...")
+                addLog("INFO", "========== 开始合成 ==========")
+                addLog("INFO", "模型: $modelId")
+                addLog("INFO", "文本: ${text.take(50)}${if (text.length > 50) "..." else ""}")
+                addLog("INFO", "音频格式: ${currentSettings.audioFormat.name}")
+                addLog("INFO", "API: ${activeConfig?.apiEndpoint ?: currentSettings.apiEndpoint}")
+                
+                if (currentSettings.styleTags.isNotEmpty()) {
+                    addLog("INFO", "风格标签: ${currentSettings.styleTags.joinToString(", ")}")
+                }
+                if (currentSettings.styleInstruction.isNotBlank()) {
+                    addLog("INFO", "风格指令: ${currentSettings.styleInstruction.take(50)}")
+                }
 
                 val baseUrl = activeConfig?.apiEndpoint ?: currentSettings.apiEndpoint
 
