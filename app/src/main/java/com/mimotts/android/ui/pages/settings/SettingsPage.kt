@@ -186,7 +186,7 @@ fun SettingsPage(
             }
         } else if (showLogs) {
             // 日志记录页面
-            val logs by viewModel.logEntries.collectAsStateWithLifecycle()
+            val logs by TTSViewModel.logEntries.collectAsStateWithLifecycle()
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -205,7 +205,7 @@ fun SettingsPage(
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
-                    TextButton(onClick = { viewModel.clearLogs() }) {
+                    TextButton(onClick = { TTSViewModel.clearLogsStatic() }) {
                         Text("清空日志")
                     }
                 }
@@ -349,7 +349,7 @@ fun SettingsPage(
                                     style = MaterialTheme.typography.bodyMedium,
                                     color = MaterialTheme.colorScheme.primary
                                 )
-                                val logCount = viewModel.logEntries.collectAsStateWithLifecycle().value.size
+                                val logCount = TTSViewModel.logEntries.collectAsStateWithLifecycle().value.size
                                 Text(
                                     "${logCount} 条记录",
                                     style = MaterialTheme.typography.bodySmall,
@@ -378,7 +378,7 @@ fun SettingsPage(
                             style = MaterialTheme.typography.bodyMedium
                         )
                         Text(
-                            "版本: 1.0.2",
+                            "版本: 1.1.0",
                             style = MaterialTheme.typography.bodyMedium
                         )
                         Text(

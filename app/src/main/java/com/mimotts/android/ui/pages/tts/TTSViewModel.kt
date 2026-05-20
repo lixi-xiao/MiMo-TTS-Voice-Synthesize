@@ -18,6 +18,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import java.io.File
+import java.nio.ByteBuffer
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -34,19 +35,20 @@ class TTSViewModel(
         val message: String
     )
 
-    private val _logEntries = MutableStateFlow<List<LogEntry>>(emptyList())
-    val logEntries: StateFlow<List<LogEntry>> = _logEntries.asStateFlow()
+    companion object {
+        // 使用静态列表存储日志，确保跨页面、跨ViewModel实例共享
+        private val _staticLogEntries = MutableStateFlow<List<LogEntry>>(emptyList())
+        val logEntries: StateFlow<List<LogEntry>> = _staticLogEntries.asStateFlow()
 
-    private fun addLog(level: String, message: String) {
-        val entry = LogEntry(timestamp = System.currentTimeMillis(), level = level, message = message)
-        _logEntries.value = (_logEntries.value + entry).takeLast(500) // 最多保留500条
-        // 同时打印到 Logcat，方便调试
-        android.util.Log.d("MiMoTTS", "[$level] $message")
-    }
+        private fun addLogStatic(level: String, message: String) {
+            val entry = LogEntry(timestamp = System.currentTimeMillis(), level = level, message = message)
+            _staticLogEntries.value = (_staticLogEntries.value + entry).takeLast(500)
+            android.util.Log.d("MiMoTTS", "[$level] $message")
+        }
 
-    fun clearLogs() {
-        _logEntries.value = emptyList()
-        addLog("INFO", "日志已清空")
+        fun clearLogsStatic() {
+            _staticLogEntries.value = emptyList()
+        }
     }
 
     val textState = TextFieldState()
@@ -227,17 +229,17 @@ class TTSViewModel(
                     TTSModel.VOICE_CLONE -> "mimo-v2.5-tts-voiceclone"
                 }
 
-                addLog("INFO", "========== 开始合成 ==========")
-                addLog("INFO", "模型: $modelId")
-                addLog("INFO", "文本: ${text.take(50)}${if (text.length > 50) "..." else ""}")
-                addLog("INFO", "音频格式: ${currentSettings.audioFormat.name}")
-                addLog("INFO", "API: ${activeConfig?.apiEndpoint ?: currentSettings.apiEndpoint}")
+                addLogStatic("INFO", "========== 开始合成 ==========")
+                addLogStatic("INFO", "模型: $modelId")
+                addLogStatic("INFO", "文本: ${text.take(50)}${if (text.length > 50) "..." else ""}")
+                addLogStatic("INFO", "音频格式: ${currentSettings.audioFormat.name}")
+                addLogStatic("INFO", "API: ${activeConfig?.apiEndpoint ?: currentSettings.apiEndpoint}")
                 
                 if (currentSettings.styleTags.isNotEmpty()) {
-                    addLog("INFO", "风格标签: ${currentSettings.styleTags.joinToString(", ")}")
+                    addLogStatic("INFO", "风格标签: ${currentSettings.styleTags.joinToString(", ")}")
                 }
                 if (currentSettings.styleInstruction.isNotBlank()) {
-                    addLog("INFO", "风格指令: ${currentSettings.styleInstruction.take(50)}")
+                    addLogStatic("INFO", "风格指令: ${currentSettings.styleInstruction.take(50)}")
                 }
 
                 val baseUrl = activeConfig?.apiEndpoint ?: currentSettings.apiEndpoint
@@ -246,57 +248,94 @@ class TTSViewModel(
                     _voiceCloneUri.value?.let { uri ->
                         try {
                             context.contentResolver.openInputStream(uri)?.use { inputStream ->
-                                val bytes = inputStream.readBytes()
-                                
+                                val originalBytes = inputStream.readBytes()
+                                addLogStatic("INFO", "原始音频: ${originalBytes.size} bytes")
+
                                 // 检查文件大小（API限制10MB）
-                                if (bytes.size > 10 * 1024 * 1024) {
-                                    addLog("ERROR", "音频文件过大: ${bytes.size} bytes > 10MB")
+                                if (originalBytes.size > 10 * 1024 * 1024) {
+                                    addLogStatic("ERROR", "音频文件过大: ${originalBytes.size} bytes > 10MB")
                                     _error.value = "音频文件过大，请上传小于10MB的文件"
                                     _isGenerating.value = false
                                     return@launch
                                 }
-                                
-                                val base64 = android.util.Base64.encodeToString(bytes, android.util.Base64.NO_WRAP)
-                                
-                                // 根据实际文件MIME类型构建Data URI，确保格式正确
-                                var mimeType = context.contentResolver.getType(uri)
-                                val originalMimeType = mimeType
-                                
-                                // 修正 MIME 类型，确保 API 兼容
-                                when {
-                                    mimeType == null -> mimeType = "audio/wav"
-                                    mimeType.contains("mp3") || mimeType.contains("mpeg") -> mimeType = "audio/mpeg"
-                                    mimeType.contains("wav") -> mimeType = "audio/wav"
-                                    mimeType.contains("ogg") -> mimeType = "audio/ogg"
-                                    mimeType.contains("m4a") -> mimeType = "audio/mp4"
+
+                                // 检测并转码为 WAV 格式
+                                var finalBytes = originalBytes
+                                var finalMimeType = "audio/wav"
+
+                                val originalMimeType = context.contentResolver.getType(uri)
+                                addLogStatic("INFO", "原始MIME: $originalMimeType")
+
+                                // 如果不是 WAV 格式，尝试转码
+                                if (originalMimeType != null && !originalMimeType.contains("wav")) {
+                                    addLogStatic("INFO", "检测到非WAV格式($originalMimeType)，正在转码为WAV...")
+                                    try {
+                                        // 使用 MediaMetadataRetriever 获取时长信息
+                                        val mmr = android.media.MediaMetadataRetriever()
+                                        mmr.setDataSource(context, uri)
+                                        val duration = mmr.extractMetadata(android.media.MediaMetadataRetriever.METADATA_KEY_DURATION)
+                                        mmr.release()
+                                        addLogStatic("INFO", "音频时长: ${duration}ms")
+                                    } catch (e: Exception) {
+                                        addLogStatic("DEBUG", "获取音频信息失败: ${e.message}")
+                                    }
+
+                                    // 使用 Android 内置 MediaCodec/MediaExtractor 转码为 WAV
+                                    try {
+                                        finalBytes = convertToWav(context, uri)
+                                        finalMimeType = "audio/wav"
+                                        addLogStatic("SUCCESS", "转码成功: WAV ${finalBytes.size} bytes")
+                                    } catch (e: Exception) {
+                                        addLogStatic("WARN", "转码失败(${e.message})，使用原始文件")
+                                        finalBytes = originalBytes
+                                        // 根据原始MIME类型设置
+                                        finalMimeType = when {
+                                            originalMimeType.contains("mp3") || originalMimeType.contains("mpeg") -> "audio/mpeg"
+                                            originalMimeType.contains("ogg") -> "audio/ogg"
+                                            originalMimeType.contains("m4a") || originalMimeType.contains("mp4") -> "audio/mp4"
+                                            originalMimeType.contains("flac") -> "audio/flac"
+                                            else -> "audio/wav"
+                                        }
+                                    }
                                 }
-                                
-                                addLog("INFO", "音色克隆: originalMime=$originalMimeType, finalMime=$mimeType, size=${bytes.size} bytes, base64Len=${base64.length}")
-                                
+
+                                val base64 = android.util.Base64.encodeToString(finalBytes, android.util.Base64.NO_WRAP)
+                                addLogStatic("INFO", "最终: mime=$finalMimeType, size=${finalBytes.size}, base64Len=${base64.length}")
+
                                 // 验证Data URI格式
-                                val dataUri = "data:$mimeType;base64,$base64"
+                                val dataUri = "data:$finalMimeType;base64,$base64"
                                 if (dataUri.length > 10000000) {
-                                    addLog("ERROR", "Data URI 过长: ${dataUri.length}")
+                                    addLogStatic("ERROR", "Data URI 过长: ${dataUri.length}")
                                     _error.value = "音频文件过大，请上传更小的文件"
                                     _isGenerating.value = false
                                     return@launch
                                 }
-                                
+
                                 dataUri
                             }
                         } catch (e: Exception) {
-                            addLog("ERROR", "读取音频文件失败: ${e.message}")
+                            addLogStatic("ERROR", "读取音频文件失败: ${e.message}")
                             _error.value = "读取音频文件失败: ${e.message}"
                             _isGenerating.value = false
                             return@launch
                         }
                     } ?: run {
-                        addLog("ERROR", "未选择音频文件")
+                        addLogStatic("ERROR", "未选择音频文件")
                         _error.value = "请先选择要克隆的音频文件"
                         _isGenerating.value = false
                         return@launch
                     }
                 } else null
+
+                val safeFormat = when (currentSettings.audioFormat) {
+                    AudioFormat.MP3 -> "mp3"
+                    AudioFormat.WAV -> "wav"
+                    AudioFormat.FLAC -> "flac"
+                    AudioFormat.M4A -> "m4a"
+                    AudioFormat.OGG -> "ogg"
+                    else -> "wav"  // 兜底，永远不可能走到这里但以防万一
+                }
+                addLogStatic("DEBUG", "audioFormat枚举: ${currentSettings.audioFormat.name}, 发送格式: $safeFormat")
 
                 val result = apiService.synthesizeSpeech(
                     token = token,
@@ -308,7 +347,7 @@ class TTSViewModel(
                     voice = currentSettings.selectedVoice.takeIf { currentSettings.selectedModel == TTSModel.PRESET },
                     voiceDescription = currentSettings.voiceDescription.takeIf { currentSettings.selectedModel == TTSModel.VOICE_DESIGN },
                     voiceCloneBase64 = voiceCloneBase64,
-                    format = currentSettings.audioFormat.name.lowercase()
+                    format = safeFormat
                 )
 
                 result.onSuccess { audioData ->
@@ -326,7 +365,7 @@ class TTSViewModel(
                     file.writeBytes(audioData)
                     _audioUri.value = Uri.fromFile(file)
 
-                    addLog("SUCCESS", "合成成功: ${file.name}")
+                    addLogStatic("SUCCESS", "合成成功: ${file.name}")
 
                     // 添加到历史记录
                     val historyItem = TTSHistoryItem(
@@ -345,11 +384,11 @@ class TTSViewModel(
                     _historyItems.value = listOf(historyItem) + _historyItems.value
                 }.onFailure { e ->
                     _error.value = "合成失败: ${e.message}"
-                    addLog("ERROR", "合成失败: ${e.message}")
+                    addLogStatic("ERROR", "合成失败: ${e.message}")
                 }
             } catch (e: Exception) {
                 _error.value = "合成失败: ${e.message}"
-                addLog("ERROR", "合成失败: ${e.message}")
+                addLogStatic("ERROR", "合成失败: ${e.message}")
             } finally {
                 _isGenerating.value = false
             }
@@ -416,15 +455,129 @@ class TTSViewModel(
                         outputStream.write(audioData)
                     }
                     _error.value = "已保存到下载目录: $filename"
-                    addLog("SUCCESS", "音频已保存: $filename")
+                    addLogStatic("SUCCESS", "音频已保存: $filename")
                 } else {
                     _error.value = "保存失败: 无法创建文件"
-                    addLog("ERROR", "保存失败: MediaStore 返回 null")
+                    addLogStatic("ERROR", "保存失败: MediaStore 返回 null")
                 }
             } catch (e: Exception) {
                 _error.value = "下载失败: ${e.message}"
-                addLog("ERROR", "保存失败: ${e.message}")
+                addLogStatic("ERROR", "保存失败: ${e.message}")
             }
         }
+    }
+
+    /**
+     * 使用 Android MediaExtractor + MediaCodec 将任意音频格式转码为 WAV (PCM 16bit)
+     */
+    private fun convertToWav(context: android.content.Context, uri: android.net.Uri): ByteArray {
+        val extractor = android.media.MediaExtractor()
+        extractor.setDataSource(context, uri)
+
+        // 找到音频轨道
+        var audioTrackIndex = -1
+        var mediaFormat: android.media.MediaFormat? = null
+        for (i in 0 until extractor.trackCount) {
+            val format = extractor.getTrackFormat(i)
+            val mime = format.getString(android.media.MediaFormat.KEY_MIME) ?: ""
+            if (mime.startsWith("audio/")) {
+                audioTrackIndex = i
+                mediaFormat = format
+                break
+            }
+        }
+
+        if (audioTrackIndex == -1 || mediaFormat == null) {
+            extractor.release()
+            throw Exception("未找到音频轨道")
+        }
+
+        extractor.selectTrack(audioTrackIndex)
+
+        val sampleRate = mediaFormat.getInteger(android.media.MediaFormat.KEY_SAMPLE_RATE)
+        val channels = if (mediaFormat.containsKey(android.media.MediaFormat.KEY_CHANNEL_COUNT))
+            mediaFormat.getInteger(android.media.MediaFormat.KEY_CHANNEL_COUNT) else 1
+
+        // 创建解码器
+        val decoder = android.media.MediaCodec.createDecoderByType(
+            mediaFormat.getString(android.media.MediaFormat.KEY_MIME)!!
+        )
+        decoder.configure(mediaFormat, null, null, 0)
+        decoder.start()
+
+        // 收集所有 PCM 数据
+        val pcmData = java.io.ByteArrayOutputStream()
+        val bufferInfo = android.media.MediaCodec.BufferInfo()
+        val inputBuffer = ByteBuffer.allocate(8192)
+        val timeoutUs = 10000L
+
+        while (true) {
+            val inputBufferIndex = decoder.dequeueInputBuffer(timeoutUs)
+            if (inputBufferIndex >= 0) {
+                inputBuffer.clear()
+                val sampleSize = extractor.readSampleData(inputBuffer, 0)
+                if (sampleSize < 0) {
+                    decoder.queueInputBuffer(inputBufferIndex, 0, 0, 0, android.media.MediaCodec.BUFFER_FLAG_END_OF_STREAM)
+                    break
+                } else {
+                    decoder.queueInputBuffer(inputBufferIndex, 0, sampleSize, extractor.sampleTime, 0)
+                    extractor.advance()
+                }
+            }
+
+            val outputBufferIndex = decoder.dequeueOutputBuffer(bufferInfo, timeoutUs)
+            if (outputBufferIndex >= 0) {
+                val outputBuffer = decoder.getOutputBuffer(outputBufferIndex)
+                if (outputBuffer != null && bufferInfo.size > 0) {
+                    val outBytes = ByteArray(bufferInfo.size)
+                    outputBuffer.get(outBytes)
+                    pcmData.write(outBytes)
+                }
+                decoder.releaseOutputBuffer(outputBufferIndex, false)
+                if (bufferInfo.flags and android.media.MediaCodec.BUFFER_FLAG_END_OF_STREAM != 0) break
+            }
+        }
+
+        decoder.stop()
+        decoder.release()
+        extractor.release()
+
+        // 构建 WAV 文件头
+        val pcmBytes = pcmData.toByteArray()
+        return writeWavHeader(pcmBytes, sampleRate, channels)
+    }
+
+    /**
+     * 写入 WAV 文件头
+     */
+    private fun writeWavHeader(pcmData: ByteArray, sampleRate: Int, channels: Int): ByteArray {
+        val bitsPerSample = 16
+        val byteRate = sampleRate * channels * bitsPerSample / 8
+        val blockAlign = channels * bitsPerSample / 8
+        val dataSize = pcmData.size
+
+        val header = ByteBuffer.allocate(44)
+        header.order(java.nio.ByteOrder.LITTLE_ENDIAN)
+
+        // RIFF header
+        header.put("RIFF".toByteArray())
+        header.putInt(36 + dataSize)
+        header.put("WAVE".toByteArray())
+
+        // fmt chunk
+        header.put("fmt ".toByteArray())
+        header.putInt(16) // chunk size
+        header.putShort(1.toShort()) // PCM format
+        header.putShort(channels.toShort())
+        header.putInt(sampleRate)
+        header.putInt(byteRate)
+        header.putShort(blockAlign.toShort())
+        header.putShort(bitsPerSample.toShort())
+
+        // data chunk
+        header.put("data".toByteArray())
+        header.putInt(dataSize)
+
+        return header.array() + pcmData
     }
 }
