@@ -177,22 +177,26 @@ class MiMoApiService {
         voiceCloneBase64: String?,
         format: String
     ): AudioPayload {
+        // 确保格式有效
+        val validFormats = listOf("mp3", "flac", "m4a", "wav", "ogg")
+        val safeFormat = if (format.lowercase() in validFormats) format.lowercase() else "wav"
+        
         return when {
             model.contains("voiceclone") -> {
                 // 音色克隆：voice 使用 Data URI 格式（由ViewModel根据文件MIME类型构建）
                 AudioPayload(
-                    format = format,
+                    format = safeFormat,
                     voice = voiceCloneBase64
                 )
             }
             model.contains("voicedesign") -> {
                 // 音色设计：不支持 voice 字段
-                AudioPayload(format = format)
+                AudioPayload(format = safeFormat)
             }
             else -> {
                 // 预设音色
                 AudioPayload(
-                    format = format,
+                    format = safeFormat,
                     voice = voice ?: "mimo_default"
                 )
             }
