@@ -132,9 +132,11 @@ class MiMoApiService {
                 )
             }
             model.contains("voiceclone") -> {
-                // 音色克隆：user 消息可选，assistant 消息提供合成文本
+                // 音色克隆：user 消息可选（风格控制），assistant 消息提供合成文本
+                // 注意：标签（如"开心"、"唱歌"）不适合直接作为 user 消息内容
+                // 只有当 styleInstruction 是完整的自然语言指令时才添加
                 val messages = mutableListOf<Message>()
-                if (styleInstruction.isNotBlank()) {
+                if (styleInstruction.isNotBlank() && styleInstruction.length > 10) {
                     messages.add(Message(role = "user", content = styleInstruction))
                 }
                 messages.add(Message(role = "assistant", content = text))
