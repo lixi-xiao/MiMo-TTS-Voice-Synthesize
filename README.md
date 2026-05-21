@@ -4,29 +4,56 @@
 
 ## 📱 下载安装
 
-访问本仓库的 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面，选择最新的成功构建，下载 `MiMoTTS-Android-APK` 工件，解压后安装 APK。
+访问 [Actions](https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize/actions) 页面，下载最新的 `MiMoTTS-Android-APK` 工件，解压安装。
 
 ## ✨ 功能特性
 
-- 🎙️ 预置音色 - 多种内置音色选择
-- 🎨 音色设计 - 通过文本描述定制音色
-- 🎭 声音克隆 - 上传音频样本复刻音色
-- 🏷️ 风格标签 - 支持情感、方言、风格标签
-- 🎵 音频格式 - 支持 WAV 和 MP3 输出
-- 💾 本地存储 - 自动保存合成结果
+- 🎙️ **预置音色** - 冰糖、茉莉、苏打、白桦等8种精品音色
+- 🎨 **音色设计** - 通过文本描述定制专属音色
+- 🎭 **声音克隆** - 上传音频样本复刻任意音色
+- 🏷️ **风格标签** - 60+ 标签控制情感、方言、风格、音效
+- 🎵 **音频格式** - 支持 WAV 和 MP3 输出
+- 💾 **历史记录** - 保存合成历史
+- 📱 **高刷适配** - 支持 90/120/144Hz 高刷屏幕
 
 ## 🚀 快速开始
 
-1. 获取 MiMo API Key
-2. 在应用设置中输入 API Key
-3. 选择音色和模型
-4. 输入文本，点击合成
+### 1. 获取 API 密钥
+
+- **MiMo Plan**: [MiMo Plan 控制台](https://plan.xiaomimimo.com) 获取 Token
+- **API Key**: [MiMo 开放平台](https://platform.xiaomimimo.com) 注册获取
+
+### 2. 使用标签
+
+```
+(开心)你好呀，今天天气真好！
+(东北话)哥们儿，整点啥？
+(唱歌)小星星，亮晶晶
+```
 
 ## 📋 系统要求
 
 - Android 8.0+ (API 26+)
 - 网络连接
 - 存储权限
+
+## 🔧 自行编译
+
+```bash
+git clone https://github.com/xiaozhanqi/MiMo-TTS-Voice-Synthesize.git
+cd MiMo-TTS-Voice-Synthesize
+git checkout android
+```
+
+用 Android Studio 打开项目，点击 Run 编译安装。
+
+或命令行编译：
+
+```bash
+./gradlew assembleDebug
+```
+
+APK 位于：`app/build/outputs/apk/debug/app-debug.apk`
 
 ## 📄 许可证
 
