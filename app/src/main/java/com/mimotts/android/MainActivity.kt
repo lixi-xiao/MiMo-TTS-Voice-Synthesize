@@ -1,6 +1,7 @@
 package com.mimotts.android
 
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -22,6 +23,14 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
+        
+        // 适配高刷屏幕 - 设置为系统支持的最高刷新率
+        window.attributes = window.attributes.apply {
+            preferredRefreshRate = 120f
+        }
+        
+        // 允许屏幕常亮
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
         setContent {
             MiMoTTSTheme {
