@@ -123,7 +123,7 @@ fun TTSPage(
             TopAppBar(
                 title = {
                     Text(
-                        "MiMo TTS",
+                        "语音合成",
                         style = MaterialTheme.typography.titleLarge,
                         fontWeight = FontWeight.Bold
                     )
